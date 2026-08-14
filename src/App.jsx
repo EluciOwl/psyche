@@ -1,11 +1,8 @@
-import './App.css'
+import HomeScreen from "./screens/HomeScreen";
+import "./App.css";
 
 function App() {
-  return (
-    <>
-      <h1>Psyche</h1>
-    </>
-  )
+  return <HomeScreen />;
 }
 
-export default App
+export default App;
