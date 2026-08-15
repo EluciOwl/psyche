@@ -1,16 +1,61 @@
-# React + Vite
+# Psyche
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Psyche demo](https://raw.githubusercontent.com/EluciOwl/psyche-vanilla/main/assets/images/demo/demo.gif)
 
-Currently, two official plugins are available:
+_Demo of the first version of Psyche (vanilla JS). This repo continues from there._
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[![Live demo](https://img.shields.io/badge/🌙_live_demo-try_it_now-d946ef?style=for-the-badge&labelColor=1c1c1c)](https://eluciowl.github.io/psyche-vanilla/)
+[![Vanilla version](https://img.shields.io/badge/🌙_vanilla_version-v1.0.1-d946ef?style=for-the-badge&labelColor=1c1c1c)](https://github.com/EluciOwl/psyche-vanilla)
 
-## React Compiler
+**A calm space to face your own thoughts.**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Psyche is a small web app for self-reflection. You write down the thoughts that are on your mind, the heavy ones and the hopeful ones, and watch them drift onto the screen as floating clouds. From there, you can look at each thought honestly: question it, tag it with how it makes you feel, and notice which ones quietly drain your energy and which ones give it back.
 
-## Expanding the ESLint configuration
+The idea comes from something I believe deeply: our thoughts shape almost every decision we make. A thought like _"I forgot to do one thing, so I'm a failure"_ feels true in the moment, but it usually isn't. Psyche is built to help catch those thoughts and look at them clearly.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚧 Status
+
+In development. This is the main version of Psyche: first a React rebuild of the vanilla app, then new features on top.
+
+**Rebuild first**
+
+- [x] Project setup (React + Vite)
+- [ ] Screen 1: Home
+- [ ] Screen 2: Thoughts (input, clouds)
+- [ ] Screen 3: Reflect (emotions onto clouds, save or release)
+- [ ] Screen 4: Analyze (Chart.js)
+
+**Then new ground**
+
+- [ ] User login
+
+More will land here once the rebuild stands 🌱
+
+## 🔁 Why rewrite it
+
+The vanilla version works, but building it wore me down in a specific way. Every time something changed on screen, I had to go find the element and update it myself. Miss one spot and the app quietly showed the wrong thing. By the end I was spending more time keeping the screen honest than actually building features.
+
+React promises to take that job off my hands: I describe what the screen should look like for a given state, and it keeps everything in sync. Rebuilding something I already know inside out felt like the best way to test that promise.
+
+I'm learning to code, and this is how I do it: I build, I break things, I figure out why. That's the loop.
+
+## 🧰 Built with
+
+- React
+- Vite
+- Chart.js
+
+## ▶️ Run it locally
+
+```bash
+git clone https://github.com/EluciOwl/psyche.git
+cd psyche
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints in the terminal (usually `http://localhost:5173`).
+
+## 🙏 Credits
+
+- Images: AI-generated
