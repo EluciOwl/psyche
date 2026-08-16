@@ -1,35 +1,12 @@
-/* ========================= ROOT / HTML ========================= */
-
-:root {
-  --accent-blue: 0, 225, 255;
-}
-
-html,
-body,
-#root {
-  margin: 0;
-
-  height: 100%;
-  width: 100%;
-
-  overflow: hidden;
-  user-select: none;
-}
-
 /* ========================= SCREEN 1 ========================= */
 .home-screen {
   height: 100%;
   width: 100%;
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  background-image: url("../assets/backgrounds/home-background.png");
   display: flex;
   flex-direction: column;
 
-  animation: fadeIn 0.4s ease forwards;
+  animation: fadeIn 2s ease forwards;
 }
 
 .selection-menu {
@@ -89,7 +66,6 @@ body,
     rgba(var(--accent-blue), 0.8)
   );
 
-  overflow: hidden;
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -106,7 +82,7 @@ body,
 }
 
 .menu-button:active {
-  box-shadow: 0 0 25px (var(--accent-blue), 0.8);
+  box-shadow: 0 0 25px rgba(var(--accent-blue), 0.8);
 
   transform: scale(0.85);
 }
