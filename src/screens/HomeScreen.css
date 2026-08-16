@@ -1,0 +1,112 @@
+/* ========================= ROOT / HTML ========================= */
+
+:root {
+  --accent-blue: 0, 225, 255;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+
+  height: 100%;
+  width: 100%;
+
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ========================= SCREEN 1 ========================= */
+.home-screen {
+  height: 100%;
+  width: 100%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-image: url("../assets/backgrounds/home-background.png");
+  display: flex;
+  flex-direction: column;
+
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.selection-menu {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10%;
+}
+
+#home-button {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+
+  background: transparent;
+  border: none;
+
+  transition:
+    transform 0.4s ease-in-out,
+    filter 0.4s ease-in-out;
+}
+
+#home-button img {
+  width: 85vh;
+}
+
+#home-button:hover {
+  filter: brightness(1.25);
+  transform: scale(1.025);
+}
+
+.menu-button {
+  cursor: pointer;
+
+  width: 20%;
+  height: 30%;
+  padding: 0.5em 1em;
+
+  font-size: 3vw;
+  color: white;
+
+  border: none;
+  border-radius: 1vw;
+
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-blue), 0.4),
+    rgba(var(--accent-blue), 0.6),
+    rgba(var(--accent-blue), 0.8)
+  );
+
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.menu-button:hover {
+  box-shadow:
+    0 0 20px rgba(var(--accent-blue), 0.8),
+    0 0 35px rgba(var(--accent-blue), 0.8);
+
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.menu-button:active {
+  box-shadow: 0 0 25px (var(--accent-blue), 0.8);
+
+  transform: scale(0.85);
+}
