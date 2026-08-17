@@ -7,27 +7,26 @@
   flex-direction: column;
 
   animation: fadeIn 2s ease forwards;
+  gap: clamp(0.5rem, 12vmin, 8rem);
 }
 
 .selection-menu {
-  margin-top: 5%;
-  margin-bottom: 5%;
   height: 100%;
   width: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10%;
+  gap: clamp(1rem, 6vmin, 4rem);
 }
 
 #home-button {
+  margin: auto;
   cursor: pointer;
 
   display: flex;
   justify-content: center;
   margin-top: 5vh;
-  margin-bottom: 2vh;
 
   background: transparent;
   border: none;
@@ -38,7 +37,7 @@
 }
 
 #home-button img {
-  width: 85vh;
+  width: clamp(10rem, 70vmin, 45rem);
 }
 
 #home-button:hover {
@@ -49,15 +48,20 @@
 .menu-button {
   cursor: pointer;
 
-  width: 20%;
-  height: 30%;
-  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size: 3vw;
+  width: clamp(4rem, 40vmin, 22rem);
+  height: auto;
+  padding: 0.45em 1em;
+
+  font-size: clamp(0.75rem, 6vmin, 4rem);
+
   color: white;
 
   border: none;
-  border-radius: 1vw;
+  border-radius: 0.5em;
 
   background: linear-gradient(
     135deg,
