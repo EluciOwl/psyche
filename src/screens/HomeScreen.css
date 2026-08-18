@@ -20,7 +20,7 @@
   gap: clamp(1rem, 6vmin, 4rem);
 }
 
-#home-button {
+#home-hero {
   margin: auto;
   cursor: pointer;
 
@@ -36,11 +36,11 @@
     filter 0.4s ease-in-out;
 }
 
-#home-button img {
+#home-hero img {
   width: clamp(10rem, 70vmin, 45rem);
 }
 
-#home-button:hover {
+#home-hero:hover {
   filter: brightness(1.25);
   transform: scale(1.025);
 }
@@ -90,3 +90,5 @@
 
   transform: scale(0.85);
 }
+
+/* TODO: media query for narrow portrait, logo and buttons should be bigger + fix background */

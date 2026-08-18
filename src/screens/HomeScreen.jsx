@@ -1,15 +1,19 @@
 import "./HomeScreen.css";
-import homeImg from "../assets/images/home-wordmark.png";
+import heroImg from "../assets/images/home-hero.png";
 
-function HomeScreen() {
+function HomeScreen({ onNavigate }) {
   return (
     <div className="home-screen">
-      <button id="home-button">
-        <img src={homeImg} alt="Psyche" />
+      <button id="home-hero">
+        <img src={heroImg} alt="Psyche" />
       </button>
 
       <div className="selection-menu">
-        <button id="thoughts-button" className="menu-button">
+        <button
+          id="thoughts-button"
+          className="menu-button"
+          onClick={() => onNavigate("thoughts")}
+        >
           Thoughts
         </button>
 
