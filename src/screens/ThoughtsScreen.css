@@ -11,7 +11,7 @@
 }
 
 #home-button {
-  margin: auto;
+  margin: 0 auto;
   cursor: pointer;
 
   display: flex;
@@ -32,6 +32,151 @@
 }
 
 #home-button:hover {
-  filter: brightness(1.10);
+  filter: brightness(1.1);
   transform: scale(1.05);
 }
+
+#thoughts-input-row {
+  width: clamp(20rem, 140vmin, 80rem);
+  font-size: clamp(1rem, 3vmin, 2rem);
+  height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-self: center;
+
+  gap: 5%;
+}
+
+#thought-counter,
+#thought-input,
+#add-thought-button {
+  font-size: 2em;
+  padding: 0.5em;
+  border-radius: 0.3em;
+}
+
+#thought-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.5em;
+  margin: 0;
+  text-align: center;
+
+  color: rgba(255, 166, 251, 0.75);
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.05), rgba(255, 65, 246, 0.025)),
+    linear-gradient(
+      45deg,
+      rgba(255, 127, 80, 0),
+      hwb(290 11% 0% / 0.3),
+      rgba(236, 93, 255, 0.1)
+    );
+}
+
+#thought-input {
+  flex: 1;
+  min-width: 0;
+
+  height: auto;
+
+  border-radius: 0.5em;
+  font-size: 1.5em;
+  color: rgba(255, 166, 251, 0.75);
+
+  border: 0.1em solid
+    color-mix(
+      in srgb,
+      color-mix(in hsl, hsl(261, 100%, 65%) 20%, rgb(230, 104, 255) 80%) 20%,
+      transparent
+    );
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.1), rgba(255, 65, 246, 0.05))
+      padding-box,
+    linear-gradient(
+        45deg,
+        rgba(255, 127, 80, 0),
+        hwb(290 11% 0% / 0.5),
+        rgba(236, 93, 255, 0.2)
+      )
+      border-box;
+
+  box-shadow: 10px 10px 2.5px rgba(204, 0, 255, 0.1);
+  text-shadow: #cc49ff 1px 0 10px;
+}
+
+#thought-input::placeholder {
+  color: rgba(255, 166, 251, 0.75);
+
+  opacity: 1;
+  transition: color 0.25s ease;
+}
+
+#thought-input:focus::placeholder {
+  color: transparent;
+  text-shadow: none;
+}
+
+#thought-input:focus {
+  outline: none;
+
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.05), rgba(255, 65, 246, 0.025))
+      padding-box,
+    linear-gradient(
+        45deg,
+        rgba(255, 127, 80, 0),
+        hwb(290 11% 0% / 0.3),
+        rgba(236, 93, 255, 0.1)
+      )
+      border-box;
+}
+
+#add-thought-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3em;
+
+  font-size: 1.5em;
+  border: none;
+
+  color: rgba(255, 166, 251, 0.75);
+
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.05), rgba(255, 65, 246, 0.025))
+      padding-box,
+    linear-gradient(
+        45deg,
+        rgba(255, 127, 80, 0),
+        hwb(290 11% 0% / 0.3),
+        rgba(236, 93, 255, 0.1)
+      )
+      border-box;
+}
+
+#add-thought-button:hover {
+  cursor: pointer;
+
+  color: rgba(222, 139, 255, 0.9);
+  box-shadow:
+    0 0 20px rgba(174, 0, 255, 0.8),
+    0 0 35px rgba(255, 71, 230, 0.8);
+
+  transform: translateY(-1px);
+  filter: brightness(1.25);
+}
+
+#add-thought-button:active {
+  transform: scale(0.95);
+}
+
+#add-thought-button:focus {
+  outline: none;
+}
+
+/* TODO: fix portrait-oriented screen, with @media */
