@@ -17,27 +17,55 @@ The idea comes from something I believe deeply: our thoughts shape almost every 
 
 In development. This is the main version of Psyche: first a React rebuild of the vanilla app, then new features on top.
 
-**Rebuild first**
+**Rebuild first:**
 
-- [x] Project setup (React + Vite)
-- [ ] Screen 1: Home
-- [ ] Screen 2: Thoughts (input, clouds)
-- [ ] Screen 3: Reflect (emotions onto clouds, save or release)
-- [ ] Screen 4: Analyze (Chart.js)
+- [x] **Project setup (React + Vite)**
+      <br><br>
+- [ ] **Screen 1: Home**
+  - [x] Port vanilla UI
+  - [ ] Navigation
+    - [x] Home &harr; Thoughts
+    - [ ] Home &harr; Emotions
+    - [ ] Home &harr; Analyze
+          <br><br>
+- [ ] **Screen 2: Thoughts**
+  - [x] Port vanilla UI
+  - [ ] Cloud setup
+    - [ ] Create clouds via input
+    - [ ] Clouds are removable
+          <br><br>
+- [ ] **Screen 3: Emotions**
+  - [ ] Port vanilla UI
+  - [ ] Clouds are usable
+    - [ ] Add created clouds to screen
+    - [ ] Drag and drop
+    - [ ] Let clouds snap into the zone
+    - [ ] Clouds can be released
+    - [ ] Save fed clouds
+  - [ ] Emotion setup
+    - [ ] Create default emotions
+    - [ ] Drag and drop
+    - [ ] Consumable by clouds
+    - [ ] Create new emotions
+    - [ ] Emotions are removable
+          <br><br>
+- [ ] **Screen 4: Analyze**
+  - [ ] Port vanilla UI
+  - [ ] Add saved emotions to barchart
+  - [ ] Separate barchart by time
+        <br><br>
 
-**Then new ground**
+**Then new ground:**
 
 - [ ] User login
 
-More will land here once the rebuild stands 🌱
+🗒️*More will be added here over time...*
 
 ## 🔁 Why rewrite it
 
 The vanilla version works, but building it wore me down in a specific way. Every time something changed on screen, I had to go find the element and update it myself. Miss one spot and the app quietly showed the wrong thing. By the end I was spending more time keeping the screen honest than actually building features.
 
 React promises to take that job off my hands: I describe what the screen should look like for a given state, and it keeps everything in sync. Rebuilding something I already know inside out felt like the best way to test that promise.
-
-I'm learning to code, and this is how I do it: I build, I break things, I figure out why. That's the loop.
 
 ## 🧰 Built with
 
