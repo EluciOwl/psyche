@@ -15,8 +15,8 @@ function ThoughtsScreen({ onNavigate }) {
           type="text"
           id="thought-input"
           placeholder="What's on your mind?"
-          spellCheck="false"
-          maxLength="190"
+          spellCheck={false}
+          maxLength={190}
           autoComplete="off"
         />
 
