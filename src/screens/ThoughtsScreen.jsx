@@ -37,16 +37,16 @@ function ThoughtsScreen({ onNavigate }) {
         <button id="add-thought-button" onClick={addThought}>
           +
         </button>
-
-        <ul>
-          {thoughts.map((thought) => (
-            <div className="cloud" key={thought}>
-              <img src={cloudImg} alt="" />
-              <span>{thought}</span>
-            </div>
-          ))}
-        </ul>
       </div>
+
+      <ul id="cloud-field">
+        {thoughts.map((thought) => (
+          <li className="cloud" key={thought}>
+            <img src={cloudImg} alt="" />
+            <span>{thought}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
