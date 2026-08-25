@@ -1,0 +1,48 @@
+#cloud-field {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  gap: 15% 2.5%;
+}
+
+.cloud {
+  position: relative;
+  container-type: inline-size;
+  width: 20vw;
+}
+
+.cloud img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  filter: drop-shadow(0 0 10px rgb(255, 255, 255)) hue-rotate(20deg);
+  opacity: 80%;
+}
+
+.cloud-text {
+  text-align: left;
+  word-break: break-word;
+
+  width: 80%;
+  font-size: 14cqw;
+  padding: 1em;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(-1px 1.5px 1.5px rgba(253, 29, 216, 1));
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
