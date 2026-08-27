@@ -4,14 +4,14 @@ import "../components/Cloud.css";
 import homeImg from "../assets/images/home-button.png";
 import cloudImg from "../assets/images/cloud.png";
 
-
 function ThoughtsScreen({ onNavigate }) {
   const [input, setInput] = useState("");
   const [thoughts, setThoughts] = useState([]);
 
   function addThought() {
     if (input.trim() === "") return;
-    setThoughts([...thoughts, input]);
+    const newThought = { id: crypto.randomUUID(), text: input };
+    setThoughts([...thoughts, newThought]);
     setInput("");
   }
 
@@ -43,9 +43,9 @@ function ThoughtsScreen({ onNavigate }) {
 
       <ul id="cloud-field">
         {thoughts.map((thought) => (
-          <li className="cloud float" key={thought}>
+          <li className="cloud float" key={thought.id}>
             <img src={cloudImg} alt="" />
-            <span className="cloud-text">{thought}</span>
+            <span className="cloud-text">{thought.text}</span>
           </li>
         ))}
       </ul>
