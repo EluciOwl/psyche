@@ -31,7 +31,7 @@ In development. This is the main version of Psyche: first a React rebuild of the
 - [ ] **Screen 2: Thoughts**
   - [x] Port vanilla UI
   - [ ] Cloud setup
-    - [ ] Create clouds via input
+    - [x] Create clouds via input
     - [ ] Clouds are removable
           <br><br>
 - [ ] **Screen 3: Emotions**
