@@ -37,7 +37,8 @@
 }
 
 #thoughts-input-row {
-  width: clamp(20rem, 140vmin, 80rem);
+  width: min(140vmin, 80rem);
+  max-width: 90%;
   font-size: clamp(1rem, 3vmin, 2rem);
   height: auto;
 
@@ -180,3 +181,15 @@
 }
 
 /* TODO: fix portrait-oriented screen, with @media */
+
+@media (orientation: portrait) {
+  #thought-counter {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+
+    width: auto;
+    padding: 0.2em 0.5em;
+    font-size: 1em;
+  }
+}
