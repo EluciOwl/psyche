@@ -64,3 +64,39 @@
   ```
 
 - **💡** A key must be stable and unique. Displayed data is neither, since the user can repeat it.
+
+## 2026-08-30
+
+### `useTypewriter.js` - No export in hook file
+
+- **🐛** `does not provide an export named 'default'`
+- **🔍** Function had no `export` keyword, import used default form.
+- **🔧** Added `export`, changed import to `{ useTypewriter }`.
+- **💡** Named export needs braces, default doesn't. Both sides must match.
+
+---
+
+### `useTypewriter.js` - Assigned variable instead of state
+
+- **🐛** Typewriter ran, placeholder stayed empty.
+- **🔍** Copied vanilla `placeholder = ...`. In React that variable is connected to nothing.
+- **🔧** Used `setWriting(...)` instead.
+- **💡** Only state changes trigger a repaint. Never assign, always call the setter.
+
+---
+
+### `useTypewriter.js` - setInterval in render body
+
+- **🐛** Every render started another timer.
+- **🔍** Side effects don't belong in the render pass.
+- **🔧** Moved it into `useEffect` with `[]` and a `clearInterval` cleanup.
+- **💡** Render describes, effects act.
+
+---
+
+### `useTypewriter.js` - Hook returned nothing
+
+- **🐛** `useTypewriter(...)` gave back `undefined`.
+- **🔍** State updated fine, but no `return` statement.
+- **🔧** Added `return writing` at the end of the hook.
+- **💡** React re-runs the hook on every render, so one return line is enough.

@@ -3,8 +3,11 @@ import "./ThoughtsScreen.css";
 import "../components/Cloud.css";
 import homeImg from "../assets/images/home-button.png";
 import cloudImg from "../assets/images/cloud.png";
+import { useTypewriter } from "../hooks/useTypewriter.js";
 
 function ThoughtsScreen({ onNavigate }) {
+  const typedText = useTypewriter(["What's on your mind?"], 150);
+
   const [input, setInput] = useState("");
   const [thoughts, setThoughts] = useState([]);
 
@@ -27,7 +30,7 @@ function ThoughtsScreen({ onNavigate }) {
         <input
           type="text"
           id="thought-input"
-          placeholder="What's on your mind?"
+          placeholder={typedText}
           spellCheck={false}
           maxLength={190}
           autoComplete="off"
