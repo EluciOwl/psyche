@@ -5,6 +5,8 @@ import homeImg from "../assets/images/home-button.png";
 import cloudImg from "../assets/images/cloud.png";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 
+const MAX_THOUGHTS = 8;
+
 function ThoughtsScreen({ onNavigate }) {
   const typedText = useTypewriter(["What's on your mind?"], 150);
 
@@ -12,7 +14,7 @@ function ThoughtsScreen({ onNavigate }) {
   const [thoughts, setThoughts] = useState([]);
 
   function addThought() {
-    if (input.trim() === "") return;
+    if (input.trim() === "" || thoughts.length >= MAX_THOUGHTS) return;
     const newThought = { id: crypto.randomUUID(), text: input };
     setThoughts([...thoughts, newThought]);
     setInput("");
@@ -25,7 +27,9 @@ function ThoughtsScreen({ onNavigate }) {
       </button>
 
       <div id="thoughts-input-row">
-        <p id="thought-counter">0/0</p>
+        <p id="thought-counter">
+          {thoughts.length}/{MAX_THOUGHTS}
+        </p>
 
         <input
           type="text"
