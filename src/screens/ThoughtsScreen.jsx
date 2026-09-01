@@ -27,10 +27,12 @@ function ThoughtsScreen({ onNavigate }) {
       </button>
 
       <div id="thoughts-input-row">
-        <p id="thought-counter">
+        <p
+          id="thought-counter"
+          className={thoughts.length >= MAX_THOUGHTS ? "wobble" : ""}
+        >
           {thoughts.length}/{MAX_THOUGHTS}
         </p>
-
         <input
           type="text"
           id="thought-input"
@@ -42,7 +44,6 @@ function ThoughtsScreen({ onNavigate }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && addThought()}
         />
-
         <button id="add-thought-button" onClick={addThought}>
           +
         </button>
