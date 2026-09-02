@@ -7,6 +7,18 @@ import { useTypewriter } from "../hooks/useTypewriter.js";
 
 const MAX_THOUGHTS = 8;
 
+function getCloudFontSize(text) {
+  const CLOUD_FONT_MAX = 14;
+  const CLOUD_FONT_MIN = 5;
+  const CLOUD_SHRINK = 0.865;
+
+  const length = text.replace(/ +/g, " ").trim().length;
+  return Math.max(
+    CLOUD_FONT_MIN,
+    CLOUD_FONT_MAX - Math.sqrt(length) * CLOUD_SHRINK,
+  );
+}
+
 function ThoughtsScreen({ onNavigate }) {
   const typedText = useTypewriter(["What's on your mind?"], 150);
 
@@ -53,7 +65,12 @@ function ThoughtsScreen({ onNavigate }) {
         {thoughts.map((thought) => (
           <li className="cloud float" key={thought.id}>
             <img src={cloudImg} alt="" />
-            <span className="cloud-text">{thought.text}</span>
+            <span
+              className="cloud-text"
+              style={{ fontSize: `${getCloudFontSize(thought.text)}cqw` }}
+            >
+              {thought.text}
+            </span>
           </li>
         ))}
       </ul>
