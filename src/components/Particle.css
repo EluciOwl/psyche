@@ -1,0 +1,33 @@
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+
+  pointer-events: none;
+  animation: sparkle 1s ease-out forwards;
+}
+
+.sparkle-effect {
+  position: relative;
+  height: 100%;
+}
+
+/* effect both buttons that get sparkle effect */
+.sparkle-effect > button {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+}

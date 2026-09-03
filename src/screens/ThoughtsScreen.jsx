@@ -4,14 +4,15 @@ import "../components/Cloud.css";
 import homeImg from "../assets/images/home-button.png";
 import cloudImg from "../assets/images/cloud.png";
 import { useTypewriter } from "../hooks/useTypewriter.js";
+import { SparkleEffect } from "../components/SparkleEffect.jsx";
 
 const MAX_THOUGHTS = 8;
 
-function getCloudFontSize(text) {
-  const CLOUD_FONT_MAX = 14;
-  const CLOUD_FONT_MIN = 5;
-  const CLOUD_SHRINK = 0.865;
+const CLOUD_FONT_MAX = 14;
+const CLOUD_FONT_MIN = 5;
+const CLOUD_SHRINK = 0.865;
 
+function getCloudFontSize(text) {
   const length = text.replace(/ +/g, " ").trim().length;
   return Math.max(
     CLOUD_FONT_MIN,
@@ -56,9 +57,11 @@ function ThoughtsScreen({ onNavigate }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && addThought()}
         />
-        <button id="add-thought-button" onClick={addThought}>
-          +
-        </button>
+        <SparkleEffect>
+          <button id="add-thought-button" onClick={addThought}>
+            +
+          </button>
+        </SparkleEffect>
       </div>
 
       <ul id="cloud-field">
