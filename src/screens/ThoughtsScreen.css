@@ -144,7 +144,7 @@
   width: 3em;
 
   font-size: 1.5em;
-  border: none;
+  border: 1px solid transparent;
 
   color: rgba(255, 166, 251, 0.75);
 
@@ -158,26 +158,33 @@
         rgba(236, 93, 255, 0.1)
       )
       border-box;
+
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.25s ease,
+    color 0.4s ease,
+    filter 0.4s ease;
 }
 
 #add-thought-button:hover {
   cursor: pointer;
+  color: rgba(255, 200, 250, 0.95);
 
-  color: rgba(222, 139, 255, 0.9);
   box-shadow:
-    0 0 20px rgba(174, 0, 255, 0.8),
-    0 0 35px rgba(255, 71, 230, 0.8);
+    inset 0 0 18px rgba(255, 71, 230, 0.25),
+    0 0 22px rgba(174, 0, 255, 0.35);
 
   transform: translateY(-1px);
-  filter: brightness(1.25);
 }
 
 #add-thought-button:active {
   transform: scale(0.95);
+  transition-duration: 0.08s;
 }
 
-#add-thought-button:focus {
-  outline: none;
+#add-thought-button:focus-visible {
+  outline: 1px solid rgba(255, 166, 251, 0.6);
+  outline-offset: 3px;
 }
 
 /* TODO: fix portrait-oriented screen, with @media */
