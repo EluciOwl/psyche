@@ -26,6 +26,7 @@ body,
   animation: breathe 40s ease-in-out infinite alternate;
 }
 
+.emotions-screen::before,
 .thoughts-screen::before {
   content: "";
   position: fixed;

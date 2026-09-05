@@ -35,7 +35,7 @@ function ThoughtsScreen({ onNavigate }) {
 
   return (
     <div className="thoughts-screen">
-      <button id="home-button" onClick={() => onNavigate("home")}>
+      <button className="home-button" onClick={() => onNavigate("home")}>
         <img src={homeImg} alt="Thoughts" />
       </button>
 

@@ -17,7 +17,11 @@ function HomeScreen({ onNavigate }) {
           Thoughts
         </button>
 
-        <button id="emotions-button" className="menu-button">
+        <button
+          id="emotions-button"
+          className="menu-button"
+          onClick={() => onNavigate("emotions")}
+        >
           Emotions
         </button>
 
