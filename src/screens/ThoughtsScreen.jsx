@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ThoughtsScreen.css";
 import "../components/Cloud.css";
-import homeImg from "../assets/images/home-button.png";
+import HomeButton from "../components/HomeButton.jsx";
 import cloudImg from "../assets/images/cloud.png";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 import { SparkleEffect } from "../components/SparkleEffect.jsx";
@@ -35,9 +35,7 @@ function ThoughtsScreen({ onNavigate }) {
 
   return (
     <div className="thoughts-screen">
-      <button className="home-button" onClick={() => onNavigate("home")}>
-        <img src={homeImg} alt="Thoughts" />
-      </button>
+      <HomeButton onClick={() => onNavigate("home")} />
 
       <div id="thoughts-input-row">
         <p
