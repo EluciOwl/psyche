@@ -15,6 +15,7 @@
 - **🔍** Put the save effect in `addThought()`. React counts hooks per render to match state to slots. A handler runs outside the render pass, so the count breaks.
 - **🔧** Moved the effect to the component body, next to the state.
 - **💡** Hooks are numbered seats. Same seats, same order, every render. No `if`, no loops, no nested functions.
+</details>
 
 <details>
 <summary><b>2026-08-30</b> &nbsp;·&nbsp; <code>modules</code> <code>state</code> <code>effects</code></summary>
