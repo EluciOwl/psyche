@@ -1,12 +1,22 @@
 # Psyche - Bug Log
 
-<img src="https://img.shields.io/badge/bugs%20logged-6-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
+<img src="https://img.shields.io/badge/bugs%20logged-7-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
 
 ---
 
 > **Symbols** &nbsp; 🐛 bug &middot; 🔍 cause &middot; 🔧 fix &middot; 💡 takeaway &middot; 👀 watch &middot; ⚠️ warning
 
 <details open>
+<summary><b>2026-09-07</b> &nbsp;·&nbsp; <code>hooks</code></summary>
+
+### `ThoughtsScreen.jsx` - useEffect inside the click handler
+
+- **🐛** Clouds added, input never cleared, nothing saved.
+- **🔍** Put the save effect in `addThought()`. React counts hooks per render to match state to slots. A handler runs outside the render pass, so the count breaks.
+- **🔧** Moved the effect to the component body, next to the state.
+- **💡** Hooks are numbered seats. Same seats, same order, every render. No `if`, no loops, no nested functions.
+
+<details>
 <summary><b>2026-08-30</b> &nbsp;·&nbsp; <code>modules</code> <code>state</code> <code>effects</code></summary>
 
 ### `useTypewriter.js` - No export in hook file

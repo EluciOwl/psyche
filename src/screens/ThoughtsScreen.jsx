@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ThoughtsScreen.css";
 import "../components/Cloud.css";
 import HomeButton from "../components/HomeButton.jsx";
 import cloudImg from "../assets/images/cloud.png";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 import { SparkleEffect } from "../components/SparkleEffect.jsx";
+import { loadThoughts, saveThoughts } from "../utils/thoughtStorage.js";
 
 const MAX_THOUGHTS = 8;
 
@@ -24,12 +25,17 @@ function ThoughtsScreen({ onNavigate }) {
   const typedText = useTypewriter(["What's on your mind?"], 150);
 
   const [input, setInput] = useState("");
-  const [thoughts, setThoughts] = useState([]);
+  const [thoughts, setThoughts] = useState(() => loadThoughts());
+
+  useEffect(() => {
+    saveThoughts(thoughts);
+  }, [thoughts]);
 
   function addThought() {
     if (input.trim() === "" || thoughts.length >= MAX_THOUGHTS) return;
     const newThought = { id: crypto.randomUUID(), text: input };
     setThoughts([...thoughts, newThought]);
+
     setInput("");
   }
 
