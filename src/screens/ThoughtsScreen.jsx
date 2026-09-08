@@ -31,10 +31,14 @@ function ThoughtsScreen({ onNavigate }) {
     saveThoughts(thoughts);
   }, [thoughts]);
 
+  function removeCloud(idToRemove) {
+    setThoughts((prev) => prev.filter((thought) => thought.id !== idToRemove));
+  }
+
   function addThought() {
     if (input.trim() === "" || thoughts.length >= MAX_THOUGHTS) return;
     const newThought = { id: crypto.randomUUID(), text: input };
-    setThoughts([...thoughts, newThought]);
+    setThoughts((prev) => [...prev, newThought]);
 
     setInput("");
   }
@@ -78,6 +82,12 @@ function ThoughtsScreen({ onNavigate }) {
             >
               {thought.text}
             </span>
+            <button
+              className="cloud-remove"
+              onClick={() => removeCloud(thought.id)}
+            >
+              X
+            </button>
           </li>
         ))}
       </ul>

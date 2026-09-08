@@ -8,4 +8,3 @@ export function loadThoughts() {
 export function saveThoughts(thoughts) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(thoughts));
 }
-

@@ -161,8 +161,6 @@
   outline-offset: 3px;
 }
 
-/* TODO: fix portrait-oriented screen, with @media */
-
 @media (orientation: portrait) {
   #thought-counter {
     position: fixed;
