@@ -7,7 +7,7 @@
   flex-direction: column;
 
   animation: fadeIn 2s ease forwards;
-  gap: clamp(0.5rem, 12vmin, 8rem);
+  gap: clamp(0.5rem, 10vmin, 8rem);
 }
 
 #thoughts-input-row {
