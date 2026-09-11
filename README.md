@@ -23,16 +23,16 @@ In development. This is the main version of Psyche: first a React rebuild of the
       <br><br>
 - [ ] **Screen 1: Home**
   - [x] Port vanilla UI
-  - [ ] Navigation
+  - [x] Navigation
     - [x] Home &harr; Thoughts
-    - [ ] Home &harr; Emotions
+    - [x] Home &harr; Emotions
     - [ ] Home &harr; Analyze
           <br><br>
-- [ ] **Screen 2: Thoughts**
+- [x] **Screen 2: Thoughts**
   - [x] Port vanilla UI
-  - [ ] Cloud setup
+  - [x] Cloud setup
     - [x] Create clouds via input
-    - [ ] Clouds are removable
+    - [x] Clouds are removable
           <br><br>
 - [ ] **Screen 3: Emotions**
   - [ ] Port vanilla UI
