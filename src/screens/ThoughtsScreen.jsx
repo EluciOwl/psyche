@@ -1,25 +1,12 @@
 import { useState, useEffect } from "react";
 import "./ThoughtsScreen.css";
-import "../components/Cloud.css";
 import HomeButton from "../components/HomeButton.jsx";
-import cloudImg from "../assets/images/cloud.png";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 import { SparkleEffect } from "../components/SparkleEffect.jsx";
 import { loadThoughts, saveThoughts } from "../utils/thoughtStorage.js";
+import { CloudField } from "../components/Cloud.jsx";
 
 const MAX_THOUGHTS = 8;
-
-const CLOUD_FONT_MAX = 14;
-const CLOUD_FONT_MIN = 5;
-const CLOUD_SHRINK = 0.865;
-
-function getCloudFontSize(text) {
-  const length = text.replace(/ +/g, " ").trim().length;
-  return Math.max(
-    CLOUD_FONT_MIN,
-    CLOUD_FONT_MAX - Math.sqrt(length) * CLOUD_SHRINK,
-  );
-}
 
 function ThoughtsScreen({ onNavigate }) {
   const typedText = useTypewriter(["What's on your mind?"], 150);
@@ -72,25 +59,7 @@ function ThoughtsScreen({ onNavigate }) {
         </SparkleEffect>
       </div>
 
-      <ul id="cloud-field">
-        {thoughts.map((thought) => (
-          <li className="cloud float" key={thought.id}>
-            <img src={cloudImg} alt="" />
-            <span
-              className="cloud-text"
-              style={{ fontSize: `${getCloudFontSize(thought.text)}cqw` }}
-            >
-              {thought.text}
-            </span>
-            <button
-              className="cloud-remove"
-              onClick={() => removeCloud(thought.id)}
-            >
-              X
-            </button>
-          </li>
-        ))}
-      </ul>
+      <CloudField thoughts={thoughts} onRemove={removeCloud} />
     </div>
   );
 }
