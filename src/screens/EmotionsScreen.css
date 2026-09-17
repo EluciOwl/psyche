@@ -1,11 +1,395 @@
 /* ========================= SCREEN 3 ========================= */
 .emotions-screen {
-  height: 100%;
-  width: 100%;
+  animation: fadeIn 2s ease forwards;
+}
+
+.emotions-screen .cloud {
+  cursor: grab;
+
+  position: absolute;
+  width: 20vw;
+}
+
+.emotions-screen .cloud:hover {
+  filter: brightness(1.1);
+}
+
+.emotions-screen .cloud.active-cloud {
+  margin: 0;
+  width: 30vw;
+
+  pointer-events: none;
+}
+
+.input-panel {
+  margin-left: 2%;
 
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
 
-  animation: fadeIn 2s ease forwards;
-  gap: clamp(0.5rem, 12vmin, 8rem);
+  height: 100vh;
+  width: 30vw;
+
+  font-size: 3vw;
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+  width: 80%;
+  height: 7.5%;
+  gap: 10%;
+}
+
+.input-group .sparkle-effect {
+  flex: 0 0 20%;
+  min-width: 0;
+  height: 100%;
+}
+
+.emotions-input {
+  box-sizing: border-box;
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  height: 100%;
+  border-radius: 0.5vw;
+
+  font-size: 80%;
+  color: white;
+
+  border: 0.5vw solid
+    color-mix(
+      in srgb,
+      color-mix(in hsl, hsl(261, 100%, 65%) 20%, rgb(230, 104, 255) 80%) 20%,
+      transparent
+    );
+
+  box-shadow: 10px 10px 2.5px rgba(204, 0, 255, 0.1);
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.1), rgba(255, 65, 246, 0.15))
+      padding-box,
+    linear-gradient(
+        45deg,
+        rgba(255, 100, 247, 0.2),
+        hwb(290 11% 0% / 0.4),
+        rgba(236, 93, 255, 0.2)
+      )
+      border-box;
+
+  text-shadow: #cc49ff 1px 0 10px;
+  filter: drop-shadow(-2px 1px 5px rgb(255, 97, 255)) hue-rotate(50deg);
+}
+
+.emotions-input::placeholder {
+  color: white;
+  opacity: 1;
+  transition: color 0.5s ease;
+  text-align: center;
+}
+
+.emotions-input:focus::placeholder {
+  color: transparent;
+  text-shadow: none;
+}
+
+.emotions-input:focus {
+  outline: none;
+
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.05), rgba(255, 65, 246, 0.025))
+      padding-box,
+    linear-gradient(
+        45deg,
+        rgba(255, 127, 80, 0),
+        hwb(290 11% 0% / 0.3),
+        rgba(236, 93, 255, 0.1)
+      )
+      border-box;
+}
+
+.emotions-screen .particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+
+  pointer-events: none;
+  animation: sparkle 2.5s ease-out forwards;
+}
+
+.add-button {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 120%;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  border: 0.5vw solid
+    color-mix(
+      in srgb,
+      color-mix(in hsl, hsl(261, 100%, 65%) 20%, rgb(230, 104, 255) 80%) 20%,
+      transparent
+    );
+
+  box-shadow: 10px 10px 2.5px rgba(204, 0, 255, 0.1);
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.1), rgba(255, 65, 246, 0.15))
+      padding-box,
+    linear-gradient(
+        45deg,
+        rgba(255, 100, 247, 0.2),
+        hwb(290 11% 0% / 0.4),
+        rgba(236, 93, 255, 0.2)
+      )
+      border-box;
+
+  filter: drop-shadow(-2px 1px 5px rgb(255, 97, 255)) hue-rotate(50deg);
+  text-shadow: #cc49ff 1px 0 10px;
+}
+
+.add-button:hover {
+  box-shadow:
+    0 0 6px rgba(255, 20, 93, 0.7),
+    0 0 12px rgba(255, 89, 135, 0.5);
+}
+
+.add-button:active {
+  transform: scale(0.85);
+}
+
+.emotion-list {
+  container-type: inline-size;
+  width: 90%;
+  height: 60%;
+
+  position: relative;
+  top: 0%;
+  left: 0%;
+  transform: translateY(5%);
+
+  z-index: 1000;
+}
+
+.emotion-box {
+  cursor: grab;
+
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 15%;
+  height: 8%;
+  border-radius: 10%;
+  padding: 2% 1%;
+
+  border: solid 1px rgba(225, 0, 255, 0.5);
+
+  color: rgb(255, 255, 255);
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.1), rgba(255, 65, 246, 0.15))
+      padding-box,
+    linear-gradient(
+        45deg,
+        rgba(255, 100, 247, 0.2),
+        hwb(290 11% 0% / 0.4),
+        rgba(236, 93, 255, 0.2)
+      )
+      border-box;
+
+  filter: drop-shadow(-2px 1px 5px rgb(255, 97, 255)) hue-rotate(50deg);
+}
+
+.emotion-box:hover {
+  box-shadow:
+    0 0 12px rgba(255, 20, 93, 0.7),
+    0 0 24px rgba(255, 89, 135, 0.5);
+}
+
+.emotion-text {
+  font-size: 3cqw;
+}
+
+.emotion-remove {
+  visibility: hidden;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 20%;
+  height: 25%;
+  border: none;
+
+  padding: 0;
+
+  position: absolute;
+  top: 0%;
+  left: 80%;
+
+  font-size: 20%;
+
+  color: rgba(253, 253, 253, 0.65);
+  background-color: rgba(255, 0, 234, 0.4);
+}
+
+.emotion-box:hover .emotion-remove {
+  visibility: visible;
+
+  cursor: pointer;
+
+  filter: hue-rotate(-50deg);
+}
+
+.emotion-remove:hover {
+  color: rgba(253, 253, 253, 1);
+  background-color: rgba(255, 0, 234, 0.8);
+}
+
+.emotion-remove:active {
+  transform: scale(0.85);
+}
+
+.drop-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 100vh;
+  width: fit-content;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: clamp(0.5rem, 8vmin, 8rem);
+}
+
+.drop-zone {
+  width: 30vw;
+  height: 25vh;
+  border-radius: 25%;
+
+  border: 2px dashed rgba(155, 90, 155, 0.5);
+  background-color: rgba(204, 0, 255, 0.178);
+
+  pointer-events: none;
+}
+
+.drop-text {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5vw;
+
+  color: rgb(255, 166, 251);
+}
+
+.cloud-list {
+  width: 30%;
+  height: 70%;
+
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  transform: translateY(-5%);
+}
+/* rename to prozess ??? */
+.confirm-button {
+  visibility: hidden;
+
+  margin-top: 10%;
+
+  width: 45%;
+  height: 10%;
+  border-radius: 1vw;
+
+  font-size: 3vw;
+  overflow: hidden;
+
+  color: rgba(255, 255, 255, 0.7);
+  border: dotted 2px rgba(255, 255, 255, 0.5);
+  background:
+    linear-gradient(rgba(245, 4, 253, 0.2), rgba(255, 65, 246, 0.2)) padding-box,
+    linear-gradient(hwb(290 11% 0% / 0.3), rgba(236, 93, 255, 0.1)) border-box;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.confirm-button:hover {
+  cursor: pointer;
+
+  color: rgba(255, 255, 255, 1);
+  border: dotted 3px rgba(255, 255, 255, 0.5);
+
+  box-shadow:
+    0 0 12px rgba(174, 0, 255, 0.7),
+    0 0 24px rgba(255, 71, 230, 0.5);
+
+  transform: translateY(-5px);
+  filter: brightness(1.2);
+}
+
+.pulse {
+  animation: pulse 5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.consumed {
+  animation: consumed 1s ease forwards;
+}
+
+@keyframes consumed {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.shiny {
+  animation: shiny 0.5s ease-out;
+}
+
+@keyframes shiny {
+  0% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.2);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
 }
