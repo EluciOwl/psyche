@@ -1,8 +1,8 @@
-import { useState } from "react";
 import "./EmotionsScreen.css";
 import HomeButton from "../components/HomeButton.jsx";
+import { CloudField } from "../components/Cloud.jsx";
 
-function EmotionsScreen({ onNavigate }) {
+function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
   return (
     <div className="emotions-screen">
       <div className="input-panel">
@@ -26,8 +26,13 @@ function EmotionsScreen({ onNavigate }) {
         </div>
         <button className="confirm-button">Release</button>
       </div>
-      <div className="cloud-list"></div>
+      <CloudField thoughts={thoughts} onRemove={onRemove} />
     </div>
   );
 }
 export default EmotionsScreen;
+
+/* thoughtsscreen -> PSYCHE should be on it's own, use gap to all is bad... input row + cloudlist same gap to PSYCHE */
+/* --> Same for emotionsscreen IDEA!!! --> Nav bar or something like that later... so... better  seperate them */
+/* release button is hidden -> with state in jsx */
+/* add cloudlist with postion math */

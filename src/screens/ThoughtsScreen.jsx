@@ -1,26 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./ThoughtsScreen.css";
 import HomeButton from "../components/HomeButton.jsx";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 import { SparkleEffect } from "../components/SparkleEffect.jsx";
-import { loadThoughts, saveThoughts } from "../utils/thoughtStorage.js";
 import { CloudField } from "../components/Cloud.jsx";
 
 const MAX_THOUGHTS = 8;
 
-function ThoughtsScreen({ onNavigate }) {
+function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
   const typedText = useTypewriter(["What's on your mind?"], 150);
-
   const [input, setInput] = useState("");
-  const [thoughts, setThoughts] = useState(() => loadThoughts());
-
-  useEffect(() => {
-    saveThoughts(thoughts);
-  }, [thoughts]);
-
-  function removeCloud(idToRemove) {
-    setThoughts((prev) => prev.filter((thought) => thought.id !== idToRemove));
-  }
 
   function addThought() {
     if (input.trim() === "" || thoughts.length >= MAX_THOUGHTS) return;
@@ -59,7 +48,7 @@ function ThoughtsScreen({ onNavigate }) {
         </SparkleEffect>
       </div>
 
-      <CloudField thoughts={thoughts} onRemove={removeCloud} />
+      <CloudField thoughts={thoughts} onRemove={onRemove} />
     </div>
   );
 }
