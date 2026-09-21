@@ -13,9 +13,9 @@ function getCloudFontSize(text) {
   );
 }
 
-export function Cloud({ text, onRemove }) {
+export function Cloud({ text, onRemove, position }) {
   return (
-    <li className="cloud float">
+    <li className="cloud float" style={position}>
       <img src={cloudImg} alt="" />
       <span
         className="cloud-text"
@@ -32,7 +32,7 @@ export function Cloud({ text, onRemove }) {
 
 export function CloudField({ thoughts, onRemove }) {
   return (
-    <ul id="cloud-field">
+    <ul className="cloud-field">
       {thoughts.map((thought) => (
         <Cloud
           key={thought.id}

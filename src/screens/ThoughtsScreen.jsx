@@ -47,7 +47,6 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
           </button>
         </SparkleEffect>
       </div>
-
       <CloudField thoughts={thoughts} onRemove={onRemove} />
     </div>
   );

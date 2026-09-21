@@ -1,8 +1,13 @@
 import "./EmotionsScreen.css";
 import HomeButton from "../components/HomeButton.jsx";
-import { CloudField } from "../components/Cloud.jsx";
+import { Cloud } from "../components/Cloud.jsx";
+import { positionObject } from "../utils/positionObject.js";
 
 function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
+  const CLOUD_TOP_SPACING = 0;
+  const CLOUD_LEFT_SPACING = 15;
+  const CLOUD_GAP = 25;
+
   return (
     <div className="emotions-screen">
       <div className="input-panel">
@@ -26,7 +31,25 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
         </div>
         <button className="confirm-button">Release</button>
       </div>
-      <CloudField thoughts={thoughts} onRemove={onRemove} />
+      <ul className="cloud-field">
+        {thoughts.map((thought, cloudNumber) => {
+          const position = positionObject(
+            cloudNumber,
+            CLOUD_TOP_SPACING,
+            CLOUD_LEFT_SPACING,
+            CLOUD_GAP,
+          );
+
+          return (
+            <Cloud
+              key={thought.id}
+              text={thought.text}
+              onRemove={() => onRemove(thought.id)}
+              position={position}
+            />
+          );
+        })}
+      </ul>
     </div>
   );
 }

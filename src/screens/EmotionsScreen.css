@@ -21,6 +21,16 @@
   pointer-events: none;
 }
 
+.emotions-screen .cloud-field {
+  width: 30%;
+  height: 70%;
+
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  transform: translateY(-5%);
+}
+
 .input-panel {
   margin-left: 2%;
 
@@ -295,16 +305,6 @@
   font-size: 2.5vw;
 
   color: rgb(255, 166, 251);
-}
-
-.cloud-list {
-  width: 30%;
-  height: 70%;
-
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  transform: translateY(-5%);
 }
 
 .confirm-button {
