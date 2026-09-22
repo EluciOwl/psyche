@@ -32,14 +32,13 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
         <button className="confirm-button">Release</button>
       </div>
       <ul className="cloud-field">
-        {thoughts.map((thought, cloudNumber) => {
+        {thoughts.slice(0, 4).map((thought, cloudNumber) => {
           const position = positionObject(
             cloudNumber,
             CLOUD_TOP_SPACING,
             CLOUD_LEFT_SPACING,
             CLOUD_GAP,
           );
-
           return (
             <Cloud
               key={thought.id}
