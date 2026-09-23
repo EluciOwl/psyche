@@ -2,8 +2,18 @@ import "./EmotionsScreen.css";
 import HomeButton from "../components/HomeButton.jsx";
 import { Cloud } from "../components/Cloud.jsx";
 import { positionObject } from "../utils/positionObject.js";
+import { useTypewriter } from "../hooks/useTypewriter.js";
 
 function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
+  const INPUT_EMOJIS = [
+    "(≧◡≦)",
+    "(*＾▽＾)／",
+    "(≧ω≦)",
+    "(=^･ω･^=)",
+    "(* ´ ▽ ` *)",
+  ];
+  const typedEmojis = useTypewriter(INPUT_EMOJIS, 200);
+
   const CLOUD_TOP_SPACING = 0;
   const CLOUD_LEFT_SPACING = 15;
   const CLOUD_GAP = 25;
@@ -17,6 +27,7 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
             className="emotions-input"
             maxLength="15"
             autoComplete="off"
+            placeholder={typedEmojis}
           />
           <div className="sparkle-effect">
             <button className="add-button">+</button>
