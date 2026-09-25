@@ -6,6 +6,7 @@ import { SparkleEffect } from "../components/SparkleEffect.jsx";
 import { CloudField } from "../components/Cloud.jsx";
 
 const MAX_THOUGHTS = 8;
+const PARTICLE_COLOR = "rgb(204, 73, 255)";
 
 function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
   const typedText = useTypewriter(["What's on your mind?"], 150);
@@ -41,7 +42,7 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && addThought()}
         />
-        <SparkleEffect>
+        <SparkleEffect color={PARTICLE_COLOR}>
           <button id="add-thought-button" onClick={addThought}>
             +
           </button>

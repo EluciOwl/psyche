@@ -3,6 +3,9 @@ import HomeButton from "../components/HomeButton.jsx";
 import { Cloud } from "../components/Cloud.jsx";
 import { positionObject } from "../utils/positionObject.js";
 import { useTypewriter } from "../hooks/useTypewriter.js";
+import { SparkleEffect } from "../components/SparkleEffect.jsx";
+
+const PARTICLE_COLOR = "rgba(255, 255, 255, 0.35)";
 
 function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
   const INPUT_EMOJIS = [
@@ -29,9 +32,9 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
             autoComplete="off"
             placeholder={typedEmojis}
           />
-          <div className="sparkle-effect">
+          <SparkleEffect color={PARTICLE_COLOR}>
             <button className="add-button">+</button>
-          </div>
+          </SparkleEffect>
         </div>
         <div className="emotion-list"></div>
       </div>
