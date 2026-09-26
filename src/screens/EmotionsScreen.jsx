@@ -26,6 +26,7 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
       <div className="input-panel">
         <div className="input-group">
           <input
+            name="emotions"
             type="text"
             className="emotions-input"
             maxLength="15"
