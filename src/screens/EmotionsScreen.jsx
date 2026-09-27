@@ -79,7 +79,7 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
                 <span className="emotion-text">{emotion}</span>
                 <button
                   className="emotion-remove"
-                  onClick={alert("work in progress")}
+                  onClick={() => alert("work in progress")}
                 >
                   X
                 </button>

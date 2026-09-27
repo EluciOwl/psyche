@@ -1,12 +1,24 @@
 # Psyche - Bug Log
 
-<img src="https://img.shields.io/badge/bugs%20logged-7-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
+<img src="https://img.shields.io/badge/bugs%20logged-8-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
 
 ---
 
 > **Symbols** &nbsp; 🐛 bug &middot; 🔍 cause &middot; 🔧 fix &middot; 💡 takeaway &middot; 👀 watch &middot; ⚠️ warning
 
 <details open>
+<summary><b>2026-09-27</b> &nbsp;·&nbsp; <code>events</code> <code>render</code></summary>
+
+### `EmotionsScreen.jsx` - Alert fired on render instead of click
+
+- **🐛** Clicking "Emotions" on the main screen spammed 12 alerts in an endless loop.
+- **🔍** Wrote `onClick={alert("...")}`. The parentheses call it right away during render, once per emotion box. `useTypewriter` re-renders every 200ms, so it never stops.
+- **🔧** Wrapped it in an arrow function: `onClick={() => alert("...")}`.
+- **💡** Pass the function, don't call it. `fn` wires the doorbell, `fn()` rings it right now.
+
+</details>
+
+<details>
 <summary><b>2026-09-07</b> &nbsp;·&nbsp; <code>hooks</code></summary>
 
 ### `ThoughtsScreen.jsx` - useEffect inside the click handler
