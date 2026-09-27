@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./EmotionsScreen.css";
 import HomeButton from "../components/HomeButton.jsx";
 import { Cloud } from "../components/Cloud.jsx";
@@ -7,19 +8,44 @@ import { SparkleEffect } from "../components/SparkleEffect.jsx";
 
 const PARTICLE_COLOR = "rgba(255, 255, 255, 0.35)";
 
-function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
-  const INPUT_EMOJIS = [
-    "(≧◡≦)",
-    "(*＾▽＾)／",
-    "(≧ω≦)",
-    "(=^･ω･^=)",
-    "(* ´ ▽ ` *)",
-  ];
-  const typedEmojis = useTypewriter(INPUT_EMOJIS, 200);
+const INPUT_EMOJIS = [
+  "(≧◡≦)",
+  "(*＾▽＾)／",
+  "(≧ω≦)",
+  "(=^･ω･^=)",
+  "(* ´ ▽ ` *)",
+];
 
-  const CLOUD_TOP_SPACING = 0;
-  const CLOUD_LEFT_SPACING = 15;
-  const CLOUD_GAP = 25;
+const MAX_EMOTIONS = 12;
+
+const DEFAULT_EMOTIONS = [
+  "Happy",
+  "Lonely",
+  "Calm",
+  "Ashamed",
+  "Proud",
+  "Anxious",
+  "Hopeful",
+  "Angry",
+  "Loved",
+  "Sad",
+  "Excited",
+  "Guilty",
+];
+
+const CLOUD_TOP_SPACING = 0;
+const CLOUD_LEFT_SPACING = 15;
+const CLOUD_GAP = 25;
+
+const EMOTION_TOP_SPACING = 5;
+const EMOTION_GAP = 15;
+
+const PER_COLUMN = 6;
+const COLUMN_WIDTH = 40;
+
+function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
+  const [emotions, setEmotions] = useState(DEFAULT_EMOTIONS);
+  const typedEmojis = useTypewriter(INPUT_EMOJIS, 200);
 
   return (
     <div className="emotions-screen">
@@ -37,7 +63,30 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
             <button className="add-button">+</button>
           </SparkleEffect>
         </div>
-        <div className="emotion-list"></div>
+        <div className="emotion-list">
+          {emotions.slice(0, MAX_EMOTIONS).map((emotion, emotionCounter) => {
+            const column = Math.floor(emotionCounter / PER_COLUMN);
+            const rowInColumn = emotionCounter % PER_COLUMN;
+            const EMOTION_LEFT_SPACING = column * COLUMN_WIDTH;
+            const position = positionObject(
+              rowInColumn,
+              EMOTION_TOP_SPACING,
+              EMOTION_LEFT_SPACING,
+              EMOTION_GAP,
+            );
+            return (
+              <div key={emotion} className="emotion-box pulse" style={position}>
+                <span className="emotion-text">{emotion}</span>
+                <button
+                  className="emotion-remove"
+                  onClick={alert("work in progress")}
+                >
+                  X
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div className="drop-panel">
         <HomeButton onClick={() => onNavigate("home")} />
