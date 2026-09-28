@@ -16,7 +16,7 @@ const INPUT_EMOJIS = [
   "(* ´ ▽ ` *)",
 ];
 
-const MAX_EMOTIONS = 12;
+const MAX_EMOTIONS = 18;
 
 const DEFAULT_EMOTIONS = [
   "Happy",
@@ -31,7 +31,10 @@ const DEFAULT_EMOTIONS = [
   "Sad",
   "Excited",
   "Guilty",
-];
+].map((text) => ({
+  id: crypto.randomUUID(),
+  text,
+}));
 
 const CLOUD_TOP_SPACING = 0;
 const CLOUD_LEFT_SPACING = 15;
@@ -47,6 +50,23 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
   const [emotions, setEmotions] = useState(DEFAULT_EMOTIONS);
   const typedEmojis = useTypewriter(INPUT_EMOJIS, 200);
 
+  const [input, setInput] = useState("");
+
+  const cleanValue = input.trim();
+
+  const alreadyThere = emotions.some(
+    (emotion) => emotion.text.toLowerCase() === cleanValue.toLowerCase(),
+  );
+
+  function addEmotion() {
+    if (cleanValue === "" || alreadyThere || emotions.length >= MAX_EMOTIONS)
+      return;
+    const newEmotion = { id: crypto.randomUUID(), text: cleanValue };
+    setEmotions((prev) => [...prev, newEmotion]);
+
+    setInput("");
+  }
+
   return (
     <div className="emotions-screen">
       <div className="input-panel">
@@ -58,13 +78,18 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
             maxLength="15"
             autoComplete="off"
             placeholder={typedEmojis}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && addEmotion()}
           />
           <SparkleEffect color={PARTICLE_COLOR}>
-            <button className="add-button">+</button>
+            <button className="add-button" onClick={addEmotion}>
+              +
+            </button>
           </SparkleEffect>
         </div>
         <div className="emotion-list">
-          {emotions.slice(0, MAX_EMOTIONS).map((emotion, emotionCounter) => {
+          {emotions.map((emotion, emotionCounter) => {
             const column = Math.floor(emotionCounter / PER_COLUMN);
             const rowInColumn = emotionCounter % PER_COLUMN;
             const EMOTION_LEFT_SPACING = column * COLUMN_WIDTH;
@@ -75,8 +100,12 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
               EMOTION_GAP,
             );
             return (
-              <div key={emotion} className="emotion-box pulse" style={position}>
-                <span className="emotion-text">{emotion}</span>
+              <div
+                key={emotion.id}
+                className="emotion-box pulse"
+                style={position}
+              >
+                <span className="emotion-text">{emotion.text}</span>
                 <button
                   className="emotion-remove"
                   onClick={() => alert("work in progress")}
