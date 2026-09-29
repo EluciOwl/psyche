@@ -3,14 +3,14 @@ import HomeScreen from "./screens/HomeScreen";
 import ThoughtsScreen from "./screens/ThoughtsScreen";
 import EmotionsScreen from "./screens/EmotionsScreen";
 import "./App.css";
-import { loadThoughts, saveThoughts } from "./utils/thoughtStorage.js";
+import { load, save, KEYS } from "./utils/storage.js";
 
 function App() {
   const [screen, setScreen] = useState("home");
-  const [thoughts, setThoughts] = useState(() => loadThoughts());
+  const [thoughts, setThoughts] = useState(() => load(KEYS.thoughts, []));
 
   useEffect(() => {
-    saveThoughts(thoughts);
+    save(KEYS.thoughts, thoughts);
   }, [thoughts]);
 
   function removeCloud(idToRemove) {
