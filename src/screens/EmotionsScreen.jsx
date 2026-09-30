@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./EmotionsScreen.css";
 import HomeButton from "../components/HomeButton.jsx";
 import { Cloud } from "../components/Cloud.jsx";
 import { positionObject } from "../utils/positionObject.js";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 import { SparkleEffect } from "../components/SparkleEffect.jsx";
+import { load, save, KEYS } from "../utils/storage.js";
 
 const PARTICLE_COLOR = "rgba(255, 255, 255, 0.35)";
 
@@ -47,7 +48,14 @@ const PER_COLUMN = 6;
 const COLUMN_WIDTH = 40;
 
 function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
-  const [emotions, setEmotions] = useState(DEFAULT_EMOTIONS);
+  const [emotions, setEmotions] = useState(() =>
+    load(KEYS.emotions, DEFAULT_EMOTIONS),
+  );
+
+  useEffect(() => {
+    save(KEYS.emotions, emotions);
+  }, [emotions]);
+
   const typedEmojis = useTypewriter(INPUT_EMOJIS, 200);
 
   const [input, setInput] = useState("");
