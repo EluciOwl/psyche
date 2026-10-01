@@ -4,6 +4,7 @@ import ThoughtsScreen from "./screens/ThoughtsScreen";
 import EmotionsScreen from "./screens/EmotionsScreen";
 import "./App.css";
 import { load, save, KEYS } from "./utils/storage.js";
+import { remove } from "./utils/removeById.js";
 
 function App() {
   const [screen, setScreen] = useState("home");
@@ -13,10 +14,6 @@ function App() {
     save(KEYS.thoughts, thoughts);
   }, [thoughts]);
 
-  function removeCloud(idToRemove) {
-    setThoughts((prev) => prev.filter((thought) => thought.id !== idToRemove));
-  }
-
   return (
     <>
       {screen === "home" && <HomeScreen onNavigate={setScreen} />}
@@ -25,14 +22,15 @@ function App() {
           onNavigate={setScreen}
           thoughts={thoughts}
           setThoughts={setThoughts}
-          onRemove={removeCloud}
+          onRemove={remove}
         />
       )}
       {screen === "emotions" && (
         <EmotionsScreen
           onNavigate={setScreen}
           thoughts={thoughts}
-          onRemove={removeCloud}
+          onRemove={remove}
+          setThoughts={setThoughts}
         />
       )}
     </>

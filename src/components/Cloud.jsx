@@ -30,14 +30,14 @@ export function Cloud({ text, onRemove, position }) {
   );
 }
 
-export function CloudField({ thoughts, onRemove }) {
+export function CloudField({ thoughts, setThoughts, onRemove }) {
   return (
     <ul className="cloud-field">
       {thoughts.map((thought) => (
         <Cloud
           key={thought.id}
           text={thought.text}
-          onRemove={() => onRemove(thought.id)}
+          onRemove={() => onRemove(thought.id, setThoughts)}
         />
       ))}
     </ul>

@@ -47,7 +47,7 @@ const EMOTION_GAP = 15;
 const PER_COLUMN = 6;
 const COLUMN_WIDTH = 40;
 
-function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
+function EmotionsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
   const [emotions, setEmotions] = useState(() =>
     load(KEYS.emotions, DEFAULT_EMOTIONS),
   );
@@ -144,7 +144,7 @@ function EmotionsScreen({ onNavigate, thoughts, onRemove }) {
             <Cloud
               key={thought.id}
               text={thought.text}
-              onRemove={() => onRemove(thought.id)}
+              onRemove={() => onRemove(thought.id, setThoughts)}
               position={position}
             />
           );
