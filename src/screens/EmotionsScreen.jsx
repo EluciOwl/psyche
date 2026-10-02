@@ -6,6 +6,7 @@ import { positionObject } from "../utils/positionObject.js";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 import { SparkleEffect } from "../components/SparkleEffect.jsx";
 import { load, save, KEYS } from "../utils/storage.js";
+import { remove } from "../utils/removeById.js";
 
 const PARTICLE_COLOR = "rgba(255, 255, 255, 0.35)";
 
@@ -116,7 +117,7 @@ function EmotionsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
                 <span className="emotion-text">{emotion.text}</span>
                 <button
                   className="emotion-remove"
-                  onClick={() => alert("work in progress")}
+                  onClick={() => remove(emotion.id, setEmotions)}
                 >
                   X
                 </button>
