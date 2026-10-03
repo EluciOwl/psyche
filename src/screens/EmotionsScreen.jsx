@@ -52,6 +52,7 @@ function EmotionsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
   const [emotions, setEmotions] = useState(() =>
     load(KEYS.emotions, DEFAULT_EMOTIONS),
   );
+  const [isCloudInZone, setIsCloudInZone] = useState(false);
 
   useEffect(() => {
     save(KEYS.emotions, emotions);
@@ -131,7 +132,7 @@ function EmotionsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
         <div className="drop-zone">
           <span className="drop-text">drop cloud here</span>
         </div>
-        <button className="confirm-button">Release</button>
+        {isCloudInZone && <button className="confirm-button">Release</button>}
       </div>
       <ul className="cloud-field">
         {thoughts.slice(0, 4).map((thought, cloudNumber) => {
