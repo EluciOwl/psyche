@@ -16,27 +16,6 @@ body,
   user-select: none;
 }
 
-#root::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: url("./assets/backgrounds/home-background.png") center / cover
-    no-repeat;
-  animation: breathe 40s ease-in-out infinite alternate;
-}
-
-.emotions-screen::before,
-.thoughts-screen::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background: url("./assets/backgrounds/main-background.png") center / cover
-    no-repeat;
-  animation: breathe 40s ease-in-out infinite alternate;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;

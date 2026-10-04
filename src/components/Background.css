@@ -1,0 +1,28 @@
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* ===== TEAL THEME ===== */
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgb(2, 7, 10) 0%,
+    rgb(4, 17, 23) 35%,
+    rgb(8, 36, 48) 62%,
+    rgb(12, 51, 64) 70%
+  );
+}
+
+/* ===== VIOLET THEME: overrides the teal colors ===== */
+.background.violet .sky {
+  background: linear-gradient(
+    rgb(6, 3, 13) 0%,
+    rgb(13, 6, 25) 35%,
+    rgb(26, 11, 44) 62%,
+    rgb(36, 16, 58) 70%
+  );
+}
