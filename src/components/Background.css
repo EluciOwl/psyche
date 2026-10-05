@@ -5,24 +5,27 @@
   overflow: hidden;
 }
 
-/* ===== TEAL THEME ===== */
+.teal {
+  --sky1: 2, 7, 10;
+  --sky2: 4, 17, 23;
+  --sky3: 8, 36, 48;
+  --sky4: 12, 51, 64;
+}
+
+.violet {
+  --sky1: 6, 3, 13;
+  --sky2: 13, 6, 25;
+  --sky3: 26, 11, 44;
+  --sky4: 36, 16, 58;
+}
+
 .sky {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgb(2, 7, 10) 0%,
-    rgb(4, 17, 23) 35%,
-    rgb(8, 36, 48) 62%,
-    rgb(12, 51, 64) 70%
-  );
-}
-
-/* ===== VIOLET THEME: overrides the teal colors ===== */
-.background.violet .sky {
-  background: linear-gradient(
-    rgb(6, 3, 13) 0%,
-    rgb(13, 6, 25) 35%,
-    rgb(26, 11, 44) 62%,
-    rgb(36, 16, 58) 70%
+    rgb(var(--sky1)) 0%,
+    rgb(var(--sky2)) 35%,
+    rgb(var(--sky3)) 62%,
+    rgb(var(--sky4)) 70%
   );
 }
