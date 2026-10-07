@@ -10,6 +10,7 @@
   --sky2: 4, 17, 23;
   --sky3: 8, 36, 48;
   --sky4: 12, 51, 64;
+  --accent: 0, 225, 255;
 }
 
 .violet {
@@ -17,6 +18,23 @@
   --sky2: 13, 6, 25;
   --sky3: 26, 11, 44;
   --sky4: 36, 16, 58;
+  --accent: 217, 70, 239;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 55% 35% at 50% 25%,
+      rgba(var(--accent), 0.07),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 40% 20% at 50% 62%,
+      rgba(var(--accent), 0.08),
+      transparent 100%
+    );
 }
 
 .sky {
