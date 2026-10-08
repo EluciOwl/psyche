@@ -6,6 +6,7 @@ function Background({ theme }) {
       <div className="sky" />
       <div className="glow" />
       <div className="ground" />
+      <div className="horizon" />
     </div>
   );
 }
