@@ -5,6 +5,7 @@ function Background({ theme }) {
     <div className={`background ${theme}`}>
       <div className="sky" />
       <div className="glow" />
+      <div className="ground" />
     </div>
   );
 }

@@ -11,6 +11,7 @@
   --sky3: 8, 36, 48;
   --sky4: 12, 51, 64;
   --accent: 0, 225, 255;
+  --ground: 3, 9, 12;
 }
 
 .violet {
@@ -19,6 +20,18 @@
   --sky3: 26, 11, 44;
   --sky4: 36, 16, 58;
   --accent: 217, 70, 239;
+  --ground: 10, 6, 20;
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgb(var(--sky1)) 0%,
+    rgb(var(--sky2)) 35%,
+    rgb(var(--sky3)) 62%,
+    rgb(var(--sky4)) 70%
+  );
 }
 
 .glow {
@@ -37,13 +50,8 @@
     );
 }
 
-.sky {
+.ground {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgb(var(--sky1)) 0%,
-    rgb(var(--sky2)) 35%,
-    rgb(var(--sky3)) 62%,
-    rgb(var(--sky4)) 70%
-  );
+  inset: 70% 0 0 0;
+  background: rgb(var(--ground));
 }
