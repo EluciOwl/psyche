@@ -7,6 +7,7 @@ function Background({ theme }) {
       <div className="glow" />
       <div className="ground" />
       <div className="horizon" />
+      <div className="reflection" />
     </div>
   );
 }
