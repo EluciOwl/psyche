@@ -27,10 +27,11 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
+    in oklab,
     rgb(var(--sky1)) 0%,
     rgb(var(--sky2)) 35%,
     rgb(var(--sky3)) 62%,
-    rgb(var(--sky4)) 70%
+    rgb(var(--sky4)) 72%
   );
 }
 
