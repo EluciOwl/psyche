@@ -1,12 +1,24 @@
 # Psyche - Bug Log
 
-<img src="https://img.shields.io/badge/bugs%20logged-8-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
+<img src="https://img.shields.io/badge/bugs%20logged-9-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
 
 ---
 
 > **Symbols** &nbsp; 🐛 bug &middot; 🔍 cause &middot; 🔧 fix &middot; 💡 takeaway &middot; 👀 watch &middot; ⚠️ warning
 
 <details open>
+<summary><b>2026-10-25</b> &nbsp;·&nbsp; <code>render</code> <code>state</code></summary>
+
+### `Background.jsx` - Stars rerolled on every render
+
+- **🐛** Adding a thought or deleting a cloud made the whole sky jump to new star positions.
+- **🔍** The stars were built with `Math.random()` right in the component body. `thoughts` lives in App, so every change re-renders App and Background with it, and the stars got rebuilt each time.
+- **🔧** Wrapped the star builder in a lazy initializer: `useState(() => Array.from(...))`.
+- **💡** A render is a recipe, cooked again every time. Random inside the recipe means a new dice roll each cook. A lazy `useState` cooks once and remembers.
+
+</details>
+
+<details>
 <summary><b>2026-09-27</b> &nbsp;·&nbsp; <code>events</code> <code>render</code></summary>
 
 ### `EmotionsScreen.jsx` - Alert fired on render instead of click

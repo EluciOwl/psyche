@@ -1,15 +1,17 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import "./Background.css";
 
 const MAX_STARS = 50;
 
 function Background({ theme }) {
-  const stars = Array.from({ length: 50 }, () => ({
-    id: crypto.randomUUID(),
-    animationDelay: Math.random() * -6 + "s",
-    top: 70 * Math.random() + "%",
-    left: 100 * Math.random() + "%",
-  }));
+  const [stars] = useState(() =>
+    Array.from({ length: MAX_STARS }, () => ({
+      id: crypto.randomUUID(),
+      animationDelay: Math.random() * -6 + "s",
+      top: 70 * Math.random() + "%",
+      left: 100 * Math.random() + "%",
+    })),
+  );
 
   return (
     <div className={`background ${theme}`}>
