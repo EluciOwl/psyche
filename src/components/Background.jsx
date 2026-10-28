@@ -1,35 +1,11 @@
-import { useState } from "react";
 import "./Background.css";
-
-const MAX_STARS = 50;
+import { Stars } from "./Stars";
 
 function Background({ theme }) {
-  const [stars] = useState(() =>
-    Array.from({ length: MAX_STARS }, () => ({
-      id: crypto.randomUUID(),
-      animationDelay: Math.random() * -6 + "s",
-      top: 70 * Math.random() + "%",
-      left: 100 * Math.random() + "%",
-    })),
-  );
-
   return (
     <div className={`background ${theme}`}>
       <div className="sky" />
-      {stars.map((star) => {
-        return (
-          <div
-            className="star twinkle"
-            key={star.id}
-            style={{
-              animationDelay: star.animationDelay,
-              top: star.top,
-              left: star.left,
-            }}
-          ></div>
-        );
-      })}
-      ;
+      <Stars />
       <div className="ground" />
       <div className="grid" />
       <div className="reflection" />
