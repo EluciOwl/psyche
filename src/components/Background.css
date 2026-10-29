@@ -118,3 +118,8 @@
     transform: scale(1);
   }
 }
+
+.parallax {
+  position: absolute;
+  inset: 0;
+}
