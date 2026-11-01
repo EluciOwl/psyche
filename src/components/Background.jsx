@@ -2,6 +2,9 @@ import "./Background.css";
 import { useState, useEffect } from "react";
 import { Stars } from "./Stars";
 
+const STAR_DEPTH = 12;
+const FLOOR_DEPTH = 4;
+
 function Background({ theme }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -25,10 +28,20 @@ function Background({ theme }) {
   return (
     <div className={`background ${theme}`}>
       <div className="sky" />
-      <div className="parallax">
+      <div
+        className="parallax"
+        style={{
+          transform: `translate(${position.x * STAR_DEPTH}px, ${position.y * STAR_DEPTH}px)`,
+        }}
+      >
         <Stars />
       </div>
-      <div className="parallax">
+      <div
+        className="parallax"
+        style={{
+          transform: `translate(${position.x * FLOOR_DEPTH}px, ${position.y * FLOOR_DEPTH}px)`,
+        }}
+      >
         <div className="ground" />
         <div className="grid" />
         <div className="reflection" />
