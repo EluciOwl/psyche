@@ -37,7 +37,7 @@
 
 .ground {
   position: absolute;
-  inset: 70% 0 0 0;
+  inset: 70% -20px -20px -20px;
   background: rgb(var(--ground));
 }
 
@@ -122,4 +122,6 @@
 .parallax {
   position: absolute;
   inset: 0;
+
+  transition: transform 0.4s ease-out;
 }

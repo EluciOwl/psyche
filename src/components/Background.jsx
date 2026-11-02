@@ -9,20 +9,28 @@ function Background({ theme }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    function handleMouse(event) {
-      console.log(
-        event.clientX / window.innerWidth - 0.5,
-        event.clientY / window.innerHeight - 0.5,
-      );
+    function handleMove(event) {
       setPosition({
         x: event.clientX / window.innerWidth - 0.5,
         y: event.clientY / window.innerHeight - 0.5,
       });
     }
 
-    window.addEventListener("mousemove", handleMouse);
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, []);
 
-    return () => window.removeEventListener("mousemove", handleMouse);
+  useEffect(() => {
+    function handleLeave() {
+      setPosition({
+        x: 0,
+        y: 0,
+      });
+    }
+
+    document.documentElement.addEventListener("mouseleave", handleLeave);
+    return () =>
+      document.documentElement.removeEventListener("mouseleave", handleLeave);
   }, []);
 
   return (

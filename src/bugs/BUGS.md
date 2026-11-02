@@ -1,12 +1,25 @@
 # Psyche - Bug Log
 
-<img src="https://img.shields.io/badge/bugs%20logged-9-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
+<img src="https://img.shields.io/badge/bugs%20logged-10-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
 
 ---
 
 > **Symbols** &nbsp; 🐛 bug &middot; 🔍 cause &middot; 🔧 fix &middot; 💡 takeaway &middot; 👀 watch &middot; ⚠️ warning
 
 <details open>
+<summary><b>2026-11-02</b> &nbsp;·&nbsp; <code>events</code> <code>dom</code></summary>
+
+### `Background.jsx` - mouseleave on window never fired
+
+- **🐛** Moving the mouse out of the browser left the parallax layers stuck instead of returning to the center.
+- **🔍** Attached `mouseleave` to `window`. The event means "the mouse left this element's box", but `window` is the browser tab, not an element, so many browsers never send it.
+- **🔧** Attached it to the `<html>` element instead: `document.documentElement.addEventListener("mouseleave", ...)`.
+- **💡** `mouseleave` only fires on elements, because it needs edges to cross. `window` isn't an element, `<html>` is.
+- **👀** Plain `document` also works in modern Chrome and Firefox, but `document.documentElement` is the safe pick across browsers.
+
+</details>
+
+<details>
 <summary><b>2026-10-25</b> &nbsp;·&nbsp; <code>render</code> <code>state</code></summary>
 
 ### `Background.jsx` - Stars rerolled on every render
