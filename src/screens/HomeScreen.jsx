@@ -1,12 +1,9 @@
 import "./HomeScreen.css";
-import heroImg from "../assets/images/home-hero.png";
 
 function HomeScreen({ onNavigate }) {
   return (
     <div className="home-screen">
-      <button id="home-hero">
-        <img src={heroImg} alt="Psyche" />
-      </button>
+      <span className="logo">Psyche</span>
 
       <div className="selection-menu">
         <button

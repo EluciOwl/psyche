@@ -20,27 +20,27 @@
   gap: clamp(1rem, 6vmin, 4rem);
 }
 
-#home-hero {
-  margin: auto;
-  cursor: pointer;
-
+.logo {
   display: flex;
   justify-content: center;
   margin-top: 5vh;
 
-  background: transparent;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+
   border: none;
+  background: transparent;
+
+  color: rgb(var(--text));
+  text-shadow: 0 0 20px rgba(var(--accent), 0.35);
 
   transition:
     transform 0.4s ease-in-out,
     filter 0.4s ease-in-out;
 }
 
-#home-hero img {
-  width: clamp(10rem, 70vmin, 45rem);
-}
-
-#home-hero:hover {
+.logo:hover {
   filter: brightness(1.25);
   transform: scale(1.025);
 }
@@ -48,47 +48,38 @@
 .menu-button {
   cursor: pointer;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: clamp(15rem, 18vw, 20rem);
+  padding: 1.1rem 1.5rem;
+  border-radius: 0.875rem;
+  border: 1px solid rgba(var(--accent), 0.35);
 
-  width: clamp(4rem, 40vmin, 22rem);
-  height: auto;
-  padding: 0.45em 1em;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgb(var(--text));
 
-  font-size: clamp(0.75rem, 6vmin, 4rem);
-
-  color: white;
-
-  border: none;
-  border-radius: 0.5em;
-
-  background: linear-gradient(
-    135deg,
-    rgba(var(--accent-blue), 0.4),
-    rgba(var(--accent-blue), 0.6),
-    rgba(var(--accent-blue), 0.8)
-  );
+  font-size: clamp(1.15rem, 1.4vw, 1.5rem);
+  letter-spacing: 0.08em;
 
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    filter 0.25s ease;
+    border-color 0.3s,
+    background 0.3s,
+    box-shadow 0.3s,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.menu-button:hover {
-  box-shadow:
-    0 0 20px rgba(var(--accent-blue), 0.8),
-    0 0 35px rgba(var(--accent-blue), 0.8);
-
-  transform: translateY(-2px);
-  filter: brightness(1.1);
+.menu-button:hover,
+.menu-button:focus-visible {
+  border-color: rgba(var(--accent), 0.8);
+  background: rgba(var(--accent), 0.08);
+  box-shadow: 0 0 18px rgba(var(--accent), 0.25);
+  outline: none;
 }
 
 .menu-button:active {
-  box-shadow: 0 0 25px rgba(var(--accent-blue), 0.8);
-
-  transform: scale(0.85);
+  transform: scale(0.96);
+  box-shadow: 0 0 25px rgba(var(--accent), 0.6);
+  transition:
+    transform 0.08s ease-out,
+    box-shadow 0.08s ease-out;
 }
 
 /* TODO: media query for narrow portrait, logo and buttons should be bigger + fix background */

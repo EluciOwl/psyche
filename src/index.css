@@ -1,7 +1,39 @@
 /* ========================= HTML, BODY, ROOT ========================= */
 
+body {
+  font-family: "Lora", Georgia, serif;
+  /*  font-family: "Cormorant Garamond", Georgia, serif; */
+  /* font-family: "Playfair Display", Georgia, serif; */
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
 :root {
   --accent-blue: 0, 225, 255;
+}
+
+.teal {
+  --sky1: 2, 7, 10;
+  --sky2: 4, 17, 23;
+  --sky3: 8, 36, 48;
+  --sky4: 12, 51, 64;
+  --accent: 0, 225, 255;
+  --ground: 3, 9, 12;
+  --text: 238, 252, 255;
+}
+
+.violet {
+  --sky1: 6, 3, 13;
+  --sky2: 13, 6, 25;
+  --sky3: 26, 11, 44;
+  --sky4: 36, 16, 58;
+  --accent: 217, 70, 239;
+  --ground: 10, 6, 20;
+  --text: 246, 240, 255;
 }
 
 html,

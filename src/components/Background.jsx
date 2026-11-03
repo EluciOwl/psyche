@@ -34,7 +34,7 @@ function Background({ theme }) {
   }, []);
 
   return (
-    <div className={`background ${theme}`}>
+    <div className="background">
       <div className="sky" />
       <div
         className="parallax"
