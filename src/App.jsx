@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <div className={theme}>
+      <div className={`app ${theme}`}>
         <Background />
         {screen === "home" && <HomeScreen onNavigate={setScreen} />}
         {screen === "thoughts" && (
