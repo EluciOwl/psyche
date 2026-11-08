@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./EmotionsScreen.css";
 import HomeButton from "../components/HomeButton.jsx";
-import { Cloud } from "../components/Cloud.jsx";
+import { Card } from "../components/Card.jsx";
 import { positionObject } from "../utils/positionObject.js";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 import { SparkleEffect } from "../components/SparkleEffect.jsx";
@@ -38,9 +38,9 @@ const DEFAULT_EMOTIONS = [
   text,
 }));
 
-const CLOUD_TOP_SPACING = 0;
-const CLOUD_LEFT_SPACING = 15;
-const CLOUD_GAP = 25;
+const CARD_TOP_SPACING = 0;
+const CARD_LEFT_SPACING = 15;
+const CARD_GAP = 25;
 
 const EMOTION_TOP_SPACING = 5;
 const EMOTION_GAP = 15;
@@ -52,7 +52,7 @@ function EmotionsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
   const [emotions, setEmotions] = useState(() =>
     load(KEYS.emotions, DEFAULT_EMOTIONS),
   );
-  const [isCloudInZone, setIsCloudInZone] = useState(false);
+  const [isCardInZone, setIsCardInZone] = useState(false);
 
   useEffect(() => {
     save(KEYS.emotions, emotions);
@@ -130,20 +130,20 @@ function EmotionsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
       <div className="drop-panel">
         <HomeButton onClick={() => onNavigate("home")} />
         <div className="drop-zone">
-          <span className="drop-text">drop cloud here</span>
+          <span className="drop-text">drop card here</span>
         </div>
-        {isCloudInZone && <button className="confirm-button">Release</button>}
+        {isCardInZone && <button className="confirm-button">Release</button>}
       </div>
-      <ul className="cloud-field">
-        {thoughts.slice(0, 4).map((thought, cloudNumber) => {
+      <ul className="card-field">
+        {thoughts.slice(0, 4).map((thought, cardNumber) => {
           const position = positionObject(
-            cloudNumber,
-            CLOUD_TOP_SPACING,
-            CLOUD_LEFT_SPACING,
-            CLOUD_GAP,
+            cardNumber,
+            CARD_TOP_SPACING,
+            CARD_LEFT_SPACING,
+            CARD_GAP,
           );
           return (
-            <Cloud
+            <Card
               key={thought.id}
               text={thought.text}
               onRemove={() => onRemove(thought.id, setThoughts)}
@@ -156,8 +156,3 @@ function EmotionsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
   );
 }
 export default EmotionsScreen;
-
-/* thoughtsscreen -> PSYCHE should be on it's own, use gap to all is bad... input row + cloudlist same gap to PSYCHE */
-/* --> Same for emotionsscreen IDEA!!! --> Nav bar or something like that later... so... better  seperate them */
-/* release button is hidden -> with state in jsx */
-/* add cloudlist with postion math */

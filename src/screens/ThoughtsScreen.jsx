@@ -3,7 +3,7 @@ import "./ThoughtsScreen.css";
 import HomeButton from "../components/HomeButton.jsx";
 import { useTypewriter } from "../hooks/useTypewriter.js";
 import { SparkleEffect } from "../components/SparkleEffect.jsx";
-import { CloudField } from "../components/Cloud.jsx";
+import { CardField } from "../components/Card.jsx";
 
 const MAX_THOUGHTS = 8;
 const PARTICLE_COLOR = "rgb(204, 73, 255)";
@@ -48,7 +48,7 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
           </button>
         </SparkleEffect>
       </div>
-      <CloudField
+      <CardField
         thoughts={thoughts}
         setThoughts={setThoughts}
         onRemove={onRemove}

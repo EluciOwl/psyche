@@ -3,25 +3,25 @@
   animation: fadeIn 2s ease forwards;
 }
 
-.emotions-screen .cloud {
+.emotions-screen .card {
   cursor: grab;
 
   position: absolute;
   width: 20vw;
 }
 
-.emotions-screen .cloud:hover {
+.emotions-screen .card:hover {
   filter: brightness(1.1);
 }
 
-.emotions-screen .cloud.active-cloud {
+.emotions-screen .card.active-card {
   margin: 0;
   width: 30vw;
 
   pointer-events: none;
 }
 
-.emotions-screen .cloud-field {
+.emotions-screen .card-field {
   width: 30%;
   height: 70%;
 

@@ -1,0 +1,94 @@
+.card-field {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  gap: 15% 2.5%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  container-type: inline-size;
+  box-sizing: border-box;
+
+  width: clamp(14rem, 20vw, 18rem);
+  aspect-ratio: 5 / 2;
+  padding: 0.5rem 1.25rem;
+  border-radius: 1.4rem;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(var(--accent), 0.6);
+  box-shadow:
+    0 0 4px rgba(var(--accent), 0.55),
+    0 0 14px rgba(var(--accent), 0.28),
+    0 0 40px 8px rgba(var(--accent), 0.13),
+    inset 0 0 18px rgba(var(--accent), 0.12);
+
+  color: rgb(var(--text));
+  line-height: 1.6;
+}
+
+.card-text {
+  display: block;
+  max-height: 100%;
+
+  overflow-y: auto;
+  padding-right: 0.5rem;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--accent), 0.5) transparent;
+
+  word-break: break-word;
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.card-remove {
+  visibility: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+
+  padding: 0;
+  border: none;
+
+  color: rgba(var(--text), 0.6);
+  background: rgba(var(--accent), 0.15);
+  cursor: pointer;
+}
+
+.card:hover .card-remove {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.card-remove:hover {
+  color: rgb(var(--text));
+  background: rgba(var(--accent), 0.35);
+}
+
+.card-remove:active {
+  transform: scale(0.85);
+}
