@@ -1,10 +1,10 @@
 import "./HomeScreen.css";
+import HomeButton from "../components/HomeButton";
 
 function HomeScreen({ onNavigate }) {
   return (
     <div className="home-screen">
-      <span className="logo">Psyche</span>
-
+      <HomeButton onClick={() => onNavigate("home")} />
       <div className="selection-menu">
         <button
           id="thoughts-button"

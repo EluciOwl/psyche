@@ -20,31 +20,6 @@
   gap: clamp(1rem, 6vmin, 4rem);
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-  margin-top: 5vh;
-
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 400;
-  letter-spacing: 0.15em;
-
-  border: none;
-  background: transparent;
-
-  color: rgb(var(--text));
-  text-shadow: 0 0 20px rgba(var(--accent), 0.35);
-
-  transition:
-    transform 0.4s ease-in-out,
-    filter 0.4s ease-in-out;
-}
-
-.logo:hover {
-  filter: brightness(1.25);
-  transform: scale(1.025);
-}
-
 .menu-button {
   cursor: pointer;
 
