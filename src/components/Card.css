@@ -25,6 +25,7 @@
   border-radius: 1.4rem;
 
   background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
 
   border: 1px solid rgba(var(--accent), 0.6);
   box-shadow:
@@ -35,6 +36,10 @@
 
   color: rgb(var(--text));
   line-height: 1.6;
+
+  animation:
+    appear 2s ease,
+    float 5s ease-in-out infinite;
 }
 
 .card-text {
@@ -50,9 +55,7 @@
   word-break: break-word;
 }
 
-.float {
-  animation: float 5s ease-in-out infinite;
-}
+/* wordbreak problem -> long words get cut off, with no "-" minus at the end... */
 
 .card-remove {
   visibility: hidden;
@@ -76,6 +79,7 @@
 
   color: rgba(var(--text), 0.6);
   background: rgba(var(--accent), 0.15);
+
   cursor: pointer;
 }
 

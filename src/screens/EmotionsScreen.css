@@ -1,6 +1,6 @@
 /* ========================= SCREEN 3 ========================= */
 .emotions-screen {
-  animation: fadeIn 2s ease forwards;
+  animation: fadeIn 2s ease;
 }
 
 .emotions-screen .card {

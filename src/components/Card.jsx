@@ -14,7 +14,7 @@ function getCardFontSize(text) {
 
 export function Card({ text, onRemove, position }) {
   return (
-    <li className="card float" style={position}>
+    <li className="card" style={position}>
       <span
         className="card-text"
         style={{ fontSize: `${getCardFontSize(text)}cqw` }}

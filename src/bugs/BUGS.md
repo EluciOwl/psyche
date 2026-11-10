@@ -1,12 +1,25 @@
 # Psyche - Bug Log
 
-<img src="https://img.shields.io/badge/bugs%20logged-10-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
+<img src="https://img.shields.io/badge/bugs%20logged-11-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
 
 ---
 
 > **Symbols** &nbsp; 🐛 bug &middot; 🔍 cause &middot; 🔧 fix &middot; 💡 takeaway &middot; 👀 watch &middot; ⚠️ warning
 
 <details open>
+<summary><b>2026-11-10</b> &nbsp;·&nbsp; <code>css</code> <code>animation</code></summary>
+
+### `ThoughtsScreen.css` - Card blur only showed up after 2 seconds
+
+- **🐛** `backdrop-filter: blur()` on the cards did nothing. After removing `forwards` from the screen's fade, the blur only appeared once the 2s fade had finished.
+- **🔍** `.thoughts-screen` animated `opacity` with `fadeIn`. A parent with animated opacity becomes a backdrop root: it's painted on its own sheet, so the cards can only blur what's on that sheet, and the Background isn't. `forwards` kept that state on forever.
+- **🔧** Split `fadeIn` into `grow` (transform only) and `appear` (opacity only). The screen only zooms, the cards, input row and home button fade themselves.
+- **💡** A fading parent is painted on its own empty sheet first, then laid over the page. The card's blur looks at that empty sheet, not the background, so the fade has to sit on the card itself.
+- **👀** `transform` on a parent is fine. `opacity`, `filter` and `mask` on a parent block the blur.
+
+</details>
+
+<details>
 <summary><b>2026-11-02</b> &nbsp;·&nbsp; <code>events</code> <code>dom</code></summary>
 
 ### `Background.jsx` - mouseleave on window never fired

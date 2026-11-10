@@ -1,13 +1,17 @@
 /* ========================= SCREEN 2 ========================= */
 .thoughts-screen {
-  height: 100%;
-  width: 100%;
-
   display: flex;
   flex-direction: column;
 
-  animation: fadeIn 2s ease forwards;
+  height: 100%;
+  width: 100%;
   gap: clamp(0.5rem, 10vmin, 8rem);
+
+  animation: grow 2s ease;
+}
+
+.thoughts-screen .home-button {
+  animation: appear 2s ease;
 }
 
 #thoughts-input-row {
@@ -22,6 +26,8 @@
   align-self: center;
 
   gap: 5%;
+
+  animation: appear 2s ease;
 }
 
 #thought-counter,
