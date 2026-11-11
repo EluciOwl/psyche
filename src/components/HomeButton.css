@@ -16,6 +16,8 @@
   transition:
     transform 0.4s ease-in-out,
     filter 0.4s ease-in-out;
+
+  animation: appear 2s ease;
 }
 
 .home-button:hover {

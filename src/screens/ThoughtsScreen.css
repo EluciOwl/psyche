@@ -10,10 +10,6 @@
   animation: grow 2s ease;
 }
 
-.thoughts-screen .home-button {
-  animation: appear 2s ease;
-}
-
 #thoughts-input-row {
   width: min(140vmin, 80rem);
   max-width: 90%;

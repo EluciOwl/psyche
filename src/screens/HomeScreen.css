@@ -6,8 +6,9 @@
   display: flex;
   flex-direction: column;
 
-  animation: fadeIn 2s ease forwards;
   gap: clamp(0.5rem, 12vmin, 8rem);
+
+  animation: grow 2s ease;
 }
 
 .selection-menu {
@@ -18,6 +19,8 @@
   flex-direction: column;
   align-items: center;
   gap: clamp(1rem, 6vmin, 4rem);
+
+  animation: appear 2s ease;
 }
 
 .menu-button {

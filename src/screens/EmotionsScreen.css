@@ -1,6 +1,6 @@
 /* ========================= SCREEN 3 ========================= */
 .emotions-screen {
-  animation: fadeIn 2s ease;
+  animation: grow 2s ease;
 }
 
 .emotions-screen .card {
@@ -43,6 +43,8 @@
   width: 30vw;
 
   font-size: 3vw;
+
+  animation: appear 2s ease;
 }
 
 .input-group {
@@ -299,6 +301,8 @@
   background-color: rgba(204, 0, 255, 0.178);
 
   pointer-events: none;
+
+  animation: appear 2s ease;
 }
 
 .drop-text {
