@@ -31,22 +31,22 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
         >
           {thoughts.length}/{MAX_THOUGHTS}
         </p>
-        <input
-          type="text"
-          id="thought-input"
-          placeholder={typedText}
-          spellCheck={false}
-          maxLength={190}
-          autoComplete="off"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && addThought()}
-        />
-        <SparkleEffect color={PARTICLE_COLOR}>
-          <button id="add-thought-button" onClick={addThought}>
-            +
-          </button>
-        </SparkleEffect>
+        <div className="input-frame">
+          <textarea
+            id="thought-input"
+            placeholder={typedText}
+            spellCheck={false}
+            maxLength={190}
+            autoComplete="off"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <SparkleEffect color={PARTICLE_COLOR}>
+            <button id="add-thought-button" onClick={addThought}>
+              +
+            </button>
+          </SparkleEffect>
+        </div>
       </div>
       <CardField
         thoughts={thoughts}

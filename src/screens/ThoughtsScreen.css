@@ -11,27 +11,38 @@
 }
 
 #thoughts-input-row {
-  width: min(140vmin, 80rem);
-  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+  position: relative;
+
+  width: min(90%, 80rem);
   font-size: clamp(1rem, 3vmin, 2rem);
   height: auto;
 
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  align-self: center;
-
-  gap: 5%;
-
   animation: appear 2s ease;
+}
+
+.input-frame {
+  display: flex;
+  overflow: hidden;
+
+  width: 100%;
+  aspect-ratio: 4 / 1;
+  border-radius: 1rem;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(var(--accent), 0.6);
+  box-shadow:
+    0 0 14px rgba(var(--accent), 0.3),
+    inset 0 0 18px rgba(var(--accent), 0.1);
 }
 
 #thought-counter,
 #thought-input,
 #add-thought-button {
   font-size: 2em;
-  padding: 0.5em;
-  border-radius: 0.3em;
 }
 
 #thought-counter {
@@ -59,34 +70,19 @@
   min-width: 0;
 
   height: auto;
+  resize: none;
 
-  border-radius: 0.5em;
+  border: none;
+
   font-size: 1.5em;
-  color: rgba(255, 166, 251, 0.75);
 
-  border: 0.1em solid
-    color-mix(
-      in srgb,
-      color-mix(in hsl, hsl(261, 100%, 65%) 20%, rgb(230, 104, 255) 80%) 20%,
-      transparent
-    );
-  background:
-    linear-gradient(rgba(245, 4, 253, 0.1), rgba(255, 65, 246, 0.05))
-      padding-box,
-    linear-gradient(
-        45deg,
-        rgba(255, 127, 80, 0),
-        hwb(290 11% 0% / 0.5),
-        rgba(236, 93, 255, 0.2)
-      )
-      border-box;
-
-  box-shadow: 10px 10px 2.5px rgba(204, 0, 255, 0.1);
-  text-shadow: #cc49ff 1px 0 10px;
+  color: rgb(var(--text));
+  text-shadow: rgba(var(--accent)) 1px 0 10px;
+  background: transparent;
 }
 
 #thought-input::placeholder {
-  color: rgba(255, 166, 251, 0.75);
+  color: rgba(var(--text), 0.5);
 
   opacity: 1;
   transition: color 0.25s ease;
@@ -99,17 +95,6 @@
 
 #thought-input:focus {
   outline: none;
-
-  background:
-    linear-gradient(rgba(245, 4, 253, 0.05), rgba(255, 65, 246, 0.025))
-      padding-box,
-    linear-gradient(
-        45deg,
-        rgba(255, 127, 80, 0),
-        hwb(290 11% 0% / 0.3),
-        rgba(236, 93, 255, 0.1)
-      )
-      border-box;
 }
 
 #add-thought-button {
