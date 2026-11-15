@@ -54,7 +54,7 @@
   height: 3rem;
   border-radius: 50%;
 
-  background: rgba(20, 10, 38);
+  background: rgb(var(--ground));
   box-shadow: 0 0 8px rgba(var(--accent), 0.5);
 }
 
