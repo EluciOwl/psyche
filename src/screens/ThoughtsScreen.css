@@ -39,10 +39,35 @@
     inset 0 0 18px rgba(var(--accent), 0.1);
 }
 
-#thought-counter,
-#thought-input,
-#add-thought-button {
-  font-size: 2em;
+.bubble {
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: -1.5rem;
+  left: -1.5rem;
+
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+
+  background: rgba(20, 10, 38);
+  box-shadow: 0 0 8px rgba(var(--accent), 0.5);
+}
+
+.bubble-ring {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+
+  background: conic-gradient(
+    rgba(var(--accent), 0.9) 0 var(--fill),
+    rgba(var(--accent), 0.15) 0
+  );
+  mask: radial-gradient(circle, transparent 60%, black 65%);
 }
 
 #thought-counter {
@@ -50,19 +75,12 @@
   align-items: center;
   justify-content: center;
 
-  width: 2.5em;
+  position: relative;
+
   margin: 0;
   text-align: center;
 
-  color: rgba(255, 166, 251, 0.75);
-  background:
-    linear-gradient(rgba(245, 4, 253, 0.05), rgba(255, 65, 246, 0.025)),
-    linear-gradient(
-      45deg,
-      rgba(255, 127, 80, 0),
-      hwb(290 11% 0% / 0.3),
-      rgba(236, 93, 255, 0.1)
-    );
+  color: rgb(var(--text));
 }
 
 #thought-input {
@@ -75,6 +93,7 @@
   border: none;
 
   font-size: 1.5em;
+  padding: 1rem 1.5rem;
 
   color: rgb(var(--text));
   text-shadow: rgba(var(--accent)) 1px 0 10px;
@@ -107,7 +126,7 @@
   font-size: 1.5em;
   border: 1px solid transparent;
 
-  color: rgba(255, 166, 251, 0.75);
+  color: rgb(var(--text));
 
   background:
     linear-gradient(rgba(245, 4, 253, 0.05), rgba(255, 65, 246, 0.025))
@@ -146,18 +165,6 @@
 #add-thought-button:focus-visible {
   outline: 1px solid rgba(255, 166, 251, 0.6);
   outline-offset: 3px;
-}
-
-@media (orientation: portrait) {
-  #thought-counter {
-    position: fixed;
-    top: 1em;
-    left: 1em;
-
-    width: auto;
-    padding: 0.2em 0.5em;
-    font-size: 1em;
-  }
 }
 
 .wobble {

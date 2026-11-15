@@ -25,12 +25,18 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
       <HomeButton onClick={() => onNavigate("home")} />
 
       <div id="thoughts-input-row">
-        <p
-          id="thought-counter"
-          className={thoughts.length >= MAX_THOUGHTS ? "wobble" : ""}
-        >
-          {thoughts.length}/{MAX_THOUGHTS}
-        </p>
+        <div className="bubble">
+          <div
+            className="bubble-ring"
+            style={{ "--fill": `${(thoughts.length / MAX_THOUGHTS) * 100}%` }}
+          ></div>
+          <p
+            id="thought-counter"
+            className={thoughts.length >= MAX_THOUGHTS ? "wobble" : ""}
+          >
+            {thoughts.length}
+          </p>
+        </div>
         <div className="input-frame">
           <textarea
             id="thought-input"
