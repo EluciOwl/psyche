@@ -24,22 +24,21 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
     <div className="thoughts-screen">
       <HomeButton onClick={() => onNavigate("home")} />
 
-      <div id="thoughts-input-row">
+      <div className="thoughts-input-row">
         <div className="bubble">
           <div
             className="bubble-ring"
             style={{ "--fill": `${(thoughts.length / MAX_THOUGHTS) * 100}%` }}
           ></div>
           <p
-            id="thought-counter"
-            className={thoughts.length >= MAX_THOUGHTS ? "wobble" : ""}
+            className={`thought-counter ${thoughts.length >= MAX_THOUGHTS ? "wobble" : ""}`}
           >
             {thoughts.length}
           </p>
         </div>
         <div className="input-frame">
           <textarea
-            id="thought-input"
+            className="thought-input"
             placeholder={typedText}
             spellCheck={false}
             maxLength={190}
@@ -48,7 +47,7 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
             onChange={(e) => setInput(e.target.value)}
           />
           <SparkleEffect color={PARTICLE_COLOR}>
-            <button id="add-thought-button" onClick={addThought}>
+            <button className="add-thought-button" onClick={addThought}>
               +
             </button>
           </SparkleEffect>

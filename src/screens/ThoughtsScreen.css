@@ -10,7 +10,7 @@
   animation: grow 2s ease;
 }
 
-#thoughts-input-row {
+.thoughts-input-row {
   display: flex;
   justify-content: center;
   align-self: center;
@@ -70,7 +70,7 @@
   mask: radial-gradient(circle, transparent 60%, black 65%);
 }
 
-#thought-counter {
+.thought-counter {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@
   color: rgb(var(--text));
 }
 
-#thought-input {
+.thought-input {
   flex: 1;
   min-width: 0;
 
@@ -100,28 +100,30 @@
   background: transparent;
 }
 
-#thought-input::placeholder {
+.thought-input::placeholder {
   color: rgba(var(--text), 0.5);
 
   opacity: 1;
   transition: color 0.25s ease;
 }
 
-#thought-input:focus::placeholder {
+.thought-input:focus::placeholder {
   color: transparent;
   text-shadow: none;
 }
 
-#thought-input:focus {
+.thought-input:focus {
   outline: none;
 }
 
-#add-thought-button {
+.input-frame .sparkle-effect{
+ width: 3em;
+}
+
+.add-thought-button {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 3em;
 
   font-size: 1.5em;
   border: 1px solid transparent;
@@ -146,7 +148,7 @@
     filter 0.4s ease;
 }
 
-#add-thought-button:hover {
+.add-thought-button:hover {
   cursor: pointer;
   color: rgba(255, 200, 250, 0.95);
 
@@ -157,12 +159,12 @@
   transform: translateY(-1px);
 }
 
-#add-thought-button:active {
+.add-thought-button:active {
   transform: scale(0.95);
   transition-duration: 0.08s;
 }
 
-#add-thought-button:focus-visible {
+.add-thought-button:focus-visible {
   outline: 1px solid rgba(255, 166, 251, 0.6);
   outline-offset: 3px;
 }
