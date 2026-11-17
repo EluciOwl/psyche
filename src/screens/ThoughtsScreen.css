@@ -70,6 +70,28 @@
   mask: radial-gradient(circle, transparent 60%, black 65%);
 }
 
+.ring-piece {
+  background: conic-gradient(
+    transparent 0 var(--fill),
+    rgba(var(--accent), 0.9) 0 calc(var(--fill) + 12.5%),
+    transparent 0
+  );
+
+  animation: ring-breathe 2.5s ease-in-out infinite;
+}
+
+@keyframes ring-breathe {
+  0% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
 .thought-counter {
   display: flex;
   align-items: center;
@@ -116,8 +138,8 @@
   outline: none;
 }
 
-.input-frame .sparkle-effect{
- width: 3em;
+.input-frame .sparkle-effect {
+  width: 3em;
 }
 
 .add-thought-button {

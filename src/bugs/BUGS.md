@@ -1,12 +1,24 @@
 # Psyche - Bug Log
 
-<img src="https://img.shields.io/badge/bugs%20logged-11-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
+<img src="https://img.shields.io/badge/bugs%20logged-12-fac775?style=for-the-badge&labelColor=1c1c1c" height="32">
 
 ---
 
 > **Symbols** &nbsp; 🐛 bug &middot; 🔍 cause &middot; 🔧 fix &middot; 💡 takeaway &middot; 👀 watch &middot; ⚠️ warning
 
 <details open>
+<summary><b>2026-11-17</b> &nbsp;·&nbsp; <code>css</code> <code>render</code></summary>
+
+### `ThoughtsScreen.jsx` - Ring got darker when hovering the add button
+
+- **🐛** The faint, unfilled part of the counter ring looked too bright and turned darker when hovering the add button.
+- **🔍** The pulse layer was always rendered as `bubble-ring` and only got `ring-piece` when hovering. Without hover, it was a second full ring stacked on the first, so the faint part was painted twice.
+- **🔧** Render the pulse layer only when hovering, with both classes at once: `className={isHovering ? "bubble-ring ring-piece" : ""}`.
+- **💡** Two identical semi-transparent layers on top of each other double the color.
+
+</details>
+
+<details>
 <summary><b>2026-11-10</b> &nbsp;·&nbsp; <code>css</code> <code>animation</code></summary>
 
 ### `ThoughtsScreen.css` - Card blur only showed up after 2 seconds

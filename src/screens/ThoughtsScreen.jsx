@@ -11,6 +11,7 @@ const PARTICLE_COLOR = "rgb(204, 73, 255)";
 function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
   const typedText = useTypewriter(["What's on your mind?"], 150);
   const [input, setInput] = useState("");
+  const [isHovering, setIsHovering] = useState(false);
 
   function addThought() {
     if (input.trim() === "" || thoughts.length >= MAX_THOUGHTS) return;
@@ -25,11 +26,12 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
       <HomeButton onClick={() => onNavigate("home")} />
 
       <div className="thoughts-input-row">
-        <div className="bubble">
-          <div
-            className="bubble-ring"
-            style={{ "--fill": `${(thoughts.length / MAX_THOUGHTS) * 100}%` }}
-          ></div>
+        <div
+          className="bubble"
+          style={{ "--fill": `${(thoughts.length / MAX_THOUGHTS) * 100}%` }}
+        >
+          <div className="bubble-ring"></div>
+          <div className={isHovering ? "bubble-ring ring-piece" : ""}></div>
           <p
             className={`thought-counter ${thoughts.length >= MAX_THOUGHTS ? "wobble" : ""}`}
           >
@@ -47,7 +49,12 @@ function ThoughtsScreen({ onNavigate, thoughts, setThoughts, onRemove }) {
             onChange={(e) => setInput(e.target.value)}
           />
           <SparkleEffect color={PARTICLE_COLOR}>
-            <button className="add-thought-button" onClick={addThought}>
+            <button
+              className="add-thought-button"
+              onClick={addThought}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
               +
             </button>
           </SparkleEffect>
