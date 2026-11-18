@@ -148,47 +148,26 @@
   justify-content: center;
 
   font-size: 1.5em;
-  border: 1px solid transparent;
-
+  border: none;
+  border-left: 1px solid rgba(var(--accent), 0.6);
   color: rgb(var(--text));
 
-  background:
-    linear-gradient(rgba(245, 4, 253, 0.05), rgba(255, 65, 246, 0.025))
-      padding-box,
-    linear-gradient(
-        45deg,
-        rgba(255, 127, 80, 0),
-        hwb(290 11% 0% / 0.3),
-        rgba(236, 93, 255, 0.1)
-      )
-      border-box;
+  background: rgba(var(--accent), 0.25);
 
   transition:
     box-shadow 0.4s ease,
-    transform 0.25s ease,
-    color 0.4s ease,
-    filter 0.4s ease;
+    transform 0.25s ease;
+
+  cursor: pointer;
 }
 
 .add-thought-button:hover {
-  cursor: pointer;
-  color: rgba(255, 200, 250, 0.95);
-
-  box-shadow:
-    inset 0 0 18px rgba(255, 71, 230, 0.25),
-    0 0 22px rgba(174, 0, 255, 0.35);
-
-  transform: translateY(-1px);
+  box-shadow: inset 0 0 8px rgba(var(--accent), 0.75);
 }
 
 .add-thought-button:active {
-  transform: scale(0.95);
+  transform: scale(1.25);
   transition-duration: 0.08s;
-}
-
-.add-thought-button:focus-visible {
-  outline: 1px solid rgba(255, 166, 251, 0.6);
-  outline-offset: 3px;
 }
 
 .wobble {
