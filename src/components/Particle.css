@@ -5,12 +5,11 @@
   border-radius: 50%;
 
   pointer-events: none;
-  animation: sparkle 1s ease-out forwards;
+  animation: sparkle 2s ease-out forwards;
 }
 
 .sparkle-effect {
   position: relative;
-  
 }
 
 /* effect both buttons that get sparkle effect */
@@ -27,7 +26,7 @@
   }
 
   100% {
-    transform: translateY(-150px);
+    transform: translateY(-300px);
     opacity: 0;
   }
 }

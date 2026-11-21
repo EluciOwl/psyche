@@ -6,6 +6,7 @@ export function SparkleEffect({ children, color }) {
   const sparkleRef = useRef(null);
 
   const startSparkle = () => {
+    stopSparkle();
     sparkleRef.current = setInterval(() => {
       const PARTICLE_LEFT = Math.random() * 100 + "%";
       const PARTICLE_BOTTOM = "0px";
@@ -23,9 +24,10 @@ export function SparkleEffect({ children, color }) {
           setParticles((prev) =>
             prev.filter((particle) => particle.id !== newParticle.id),
           ),
-        1000,
+        2000,
       );
-    }, 50);
+    }, 100);
+    setTimeout(stopSparkle, 2000);
   };
 
   const stopSparkle = () => {
@@ -33,11 +35,7 @@ export function SparkleEffect({ children, color }) {
   };
 
   return (
-    <div
-      className="sparkle-effect"
-      onMouseEnter={startSparkle}
-      onMouseLeave={stopSparkle}
-    >
+    <div className="sparkle-effect" onClick={startSparkle}>
       {children}
 
       {particles.map((particle) => (
