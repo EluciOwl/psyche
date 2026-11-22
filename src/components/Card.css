@@ -65,8 +65,8 @@
   align-items: center;
 
   position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
+  top: -0.6rem;
+  right: -0.6rem;
 
   width: 1.6rem;
   height: 1.6rem;
@@ -78,7 +78,9 @@
   border: none;
 
   color: rgba(var(--text), 0.6);
-  background: rgba(var(--accent), 0.15);
+  background:
+    linear-gradient(rgba(var(--accent), 0.15), rgba(var(--accent), 0.15)),
+    rgb(var(--sky2));
 
   cursor: pointer;
 }
@@ -90,7 +92,9 @@
 
 .card-remove:hover {
   color: rgb(var(--text));
-  background: rgba(var(--accent), 0.35);
+  background:
+    linear-gradient(rgba(var(--accent), 0.35), rgba(var(--accent), 0.35)),
+    rgb(var(--sky2));
 }
 
 .card-remove:active {

@@ -22,7 +22,7 @@ export function Card({ text, onRemove, position }) {
         {text}
       </span>
       <button className="card-remove" onClick={onRemove}>
-        X
+        x
       </button>
     </li>
   );
